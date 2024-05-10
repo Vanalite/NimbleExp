@@ -25,6 +25,8 @@
 		6576E2CB2BEE0B5F00FB1E44 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2CA2BEE0B5F00FB1E44 /* NetworkAPI.swift */; };
 		6576E2CD2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */; };
 		6576E2CF2BEE0D7500FB1E44 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2CE2BEE0D7500FB1E44 /* UserEntity.swift */; };
+		6576E2D32BEE1E8F00FB1E44 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2D22BEE1E8F00FB1E44 /* ImageExtension.swift */; };
+		6576E2D52BEE30E600FB1E44 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2D42BEE30E600FB1E44 /* UITextFieldExtension.swift */; };
 		65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6412BEDEEE400877180 /* AppDelegate.swift */; };
 		65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6432BEDEEE400877180 /* SceneDelegate.swift */; };
 		65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6452BEDEEE400877180 /* LoginViewController.swift */; };
@@ -73,6 +75,8 @@
 		6576E2CA2BEE0B5F00FB1E44 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
 		6576E2CE2BEE0D7500FB1E44 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		6576E2D22BEE1E8F00FB1E44 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		6576E2D42BEE30E600FB1E44 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		65FDF63E2BEDEEE400877180 /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDF6412BEDEEE400877180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FDF6432BEDEEE400877180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			children = (
 				6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */,
 				6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */,
+				6576E2D42BEE30E600FB1E44 /* UITextFieldExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			children = (
 				6576E2B82BEE057000FB1E44 /* Constants.swift */,
 				6576E2B92BEE057000FB1E44 /* SingleExtension.swift */,
+				6576E2D22BEE1E8F00FB1E44 /* ImageExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				6576E2AB2BEE049700FB1E44 /* LoginViewModel.swift in Sources */,
 				6576E2BA2BEE057000FB1E44 /* APIProvider.swift in Sources */,
 				6576E2CF2BEE0D7500FB1E44 /* UserEntity.swift in Sources */,
+				6576E2D32BEE1E8F00FB1E44 /* ImageExtension.swift in Sources */,
 				65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */,
 				6576E2BD2BEE057000FB1E44 /* SingleExtension.swift in Sources */,
 				6576E2CD2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift in Sources */,
@@ -478,6 +485,7 @@
 				6576E2C92BEE0A3400FB1E44 /* LoginResponseEntity.swift in Sources */,
 				65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */,
 				6576E2AE2BEE053900FB1E44 /* ViewModelType.swift in Sources */,
+				6576E2D52BEE30E600FB1E44 /* UITextFieldExtension.swift in Sources */,
 				6576E2C72BEE09C900FB1E44 /* LoginRequestEntity.swift in Sources */,
 				65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */,
 				6576E2B22BEE055E00FB1E44 /* RealmManager.swift in Sources */,

@@ -17,79 +17,8 @@ class BaseEncodable: BaseEncodableProtocol {
     }
 
     func encode(to encoder: Encoder) throws {
-//        try commonEncode(to: encoder)
     }
 }
-
-//extension BaseEncodableProtocol {
-//    func commonEncode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: BaseCodingKey.self)
-//
-//        let reflection = Reflector.reflect(from: self, withAncestorsRequirements: .all)
-//        let keys: [BaseCodingKey] = reflection.names.compactMap { BaseCodingKey(stringValue: $0) }
-//
-//        for key in keys {
-//            let name = key.stringValue
-//
-//            guard !manualKeys.contains(name), let child = reflection.children(name), name != "dummyId" else {
-//                continue
-//            }
-//
-//            switch child.type.valueType {
-//            case .string:
-//                let value: String? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .array(of: .string):
-//                let value: [String]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .dictionary(key: .string, value: .string):
-//                let value: [String: String]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .bool:
-//                let value: Bool? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .array(of: .bool):
-//                let value: [Bool]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .dictionary(key: .string, value: .bool):
-//                let value: [String: Bool]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .int:
-//                let value: Int? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .array(of: .int):
-//                let value: [Int]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .dictionary(key: .string, value: .int):
-//                let value: [String: Int]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .int64:
-//                let value: Int64? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .array(of: .int64):
-//                let value: [Int64]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .dictionary(key: .string, value: .int64):
-//                let value: [String: Int64]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .float:
-//                let value: Float? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .double:
-//                let value: Double? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .array(of: .double):
-//                let value: [Double]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            case .dictionary(key: .string, value: .double):
-//                let value: [String: Double]? = reflection.value(for: name)
-//                try container.encodeIfPresent(value, forKey: key)
-//            default:
-//                break
-//            }
-//        }
-//    }
-//}
 
 extension Encodable {
     func toJSONArray() -> [Any] {

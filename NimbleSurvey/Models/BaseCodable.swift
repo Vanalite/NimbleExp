@@ -52,10 +52,7 @@ class BaseCodable: Object, BaseCodableProtocol {
         super.init()
     }
 
-//   commonEncode
-
     func encode(to encoder: Encoder) throws {
-//        try commonEncode(to: encoder)
     }
 
     private func lowerProperty(property: String) -> BaseCodingKey? {

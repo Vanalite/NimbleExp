@@ -9,16 +9,31 @@
 /* Begin PBXBuildFile section */
 		08D6C5558FD6A34C6D00C9F9 /* Pods_NimbleSurvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2914BB2C86E469597C9D2CF0 /* Pods_NimbleSurvey.framework */; };
 		2E1B109D8780D4CCDBAFE748 /* Pods_NimbleSurveyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BC5786DFC815D62896A808 /* Pods_NimbleSurveyTests.framework */; };
+		6576E2AB2BEE049700FB1E44 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2AA2BEE049700FB1E44 /* LoginViewModel.swift */; };
+		6576E2AE2BEE053900FB1E44 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */; };
+		6576E2B22BEE055E00FB1E44 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B02BEE055E00FB1E44 /* RealmManager.swift */; };
+		6576E2BA2BEE057000FB1E44 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B52BEE056F00FB1E44 /* APIProvider.swift */; };
+		6576E2BB2BEE057000FB1E44 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B62BEE056F00FB1E44 /* NetworkService.swift */; };
+		6576E2BC2BEE057000FB1E44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B82BEE057000FB1E44 /* Constants.swift */; };
+		6576E2BD2BEE057000FB1E44 /* SingleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B92BEE057000FB1E44 /* SingleExtension.swift */; };
+		6576E2C22BEE06A000FB1E44 /* BaseCodableResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2BE2BEE06A000FB1E44 /* BaseCodableResponseEntity.swift */; };
+		6576E2C32BEE06A000FB1E44 /* BaseEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2BF2BEE06A000FB1E44 /* BaseEncodable.swift */; };
+		6576E2C42BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2C02BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift */; };
+		6576E2C52BEE06A000FB1E44 /* BaseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2C12BEE06A000FB1E44 /* BaseCodable.swift */; };
+		6576E2C72BEE09C900FB1E44 /* LoginRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2C62BEE09C900FB1E44 /* LoginRequestEntity.swift */; };
+		6576E2C92BEE0A3400FB1E44 /* LoginResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2C82BEE0A3400FB1E44 /* LoginResponseEntity.swift */; };
+		6576E2CB2BEE0B5F00FB1E44 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2CA2BEE0B5F00FB1E44 /* NetworkAPI.swift */; };
+		6576E2CD2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */; };
+		6576E2CF2BEE0D7500FB1E44 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2CE2BEE0D7500FB1E44 /* UserEntity.swift */; };
 		65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6412BEDEEE400877180 /* AppDelegate.swift */; };
 		65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6432BEDEEE400877180 /* SceneDelegate.swift */; };
-		65FDF6462BEDEEE400877180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6452BEDEEE400877180 /* ViewController.swift */; };
+		65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6452BEDEEE400877180 /* LoginViewController.swift */; };
 		65FDF6492BEDEEE400877180 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FDF6472BEDEEE400877180 /* Main.storyboard */; };
 		65FDF64B2BEDEEE600877180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FDF64A2BEDEEE600877180 /* Assets.xcassets */; };
 		65FDF64E2BEDEEE600877180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FDF64C2BEDEEE600877180 /* LaunchScreen.storyboard */; };
 		65FDF6592BEDEEE600877180 /* NimbleSurveyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6582BEDEEE600877180 /* NimbleSurveyTests.swift */; };
 		65FDF6632BEDEEE600877180 /* NimbleSurveyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6622BEDEEE600877180 /* NimbleSurveyUITests.swift */; };
 		65FDF6652BEDEEE600877180 /* NimbleSurveyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6642BEDEEE600877180 /* NimbleSurveyUITestsLaunchTests.swift */; };
-		65FDF6722BEDEF5800877180 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 65FDF6712BEDEF5800877180 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +57,26 @@
 		1D5E37A06DF206B4FB5B8F0B /* Pods-NimbleSurvey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleSurvey.debug.xcconfig"; path = "Target Support Files/Pods-NimbleSurvey/Pods-NimbleSurvey.debug.xcconfig"; sourceTree = "<group>"; };
 		2914BB2C86E469597C9D2CF0 /* Pods_NimbleSurvey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleSurvey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9A9E2940B806E28EF9A225 /* Pods-NimbleSurvey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleSurvey.release.xcconfig"; path = "Target Support Files/Pods-NimbleSurvey/Pods-NimbleSurvey.release.xcconfig"; sourceTree = "<group>"; };
+		6576E2AA2BEE049700FB1E44 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		6576E2B02BEE055E00FB1E44 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		6576E2B52BEE056F00FB1E44 /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		6576E2B62BEE056F00FB1E44 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		6576E2B82BEE057000FB1E44 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6576E2B92BEE057000FB1E44 /* SingleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleExtension.swift; sourceTree = "<group>"; };
+		6576E2BE2BEE06A000FB1E44 /* BaseCodableResponseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCodableResponseEntity.swift; sourceTree = "<group>"; };
+		6576E2BF2BEE06A000FB1E44 /* BaseEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEncodable.swift; sourceTree = "<group>"; };
+		6576E2C02BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCodableAPIInfoEntity.swift; sourceTree = "<group>"; };
+		6576E2C12BEE06A000FB1E44 /* BaseCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCodable.swift; sourceTree = "<group>"; };
+		6576E2C62BEE09C900FB1E44 /* LoginRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestEntity.swift; sourceTree = "<group>"; };
+		6576E2C82BEE0A3400FB1E44 /* LoginResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseEntity.swift; sourceTree = "<group>"; };
+		6576E2CA2BEE0B5F00FB1E44 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
+		6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
+		6576E2CE2BEE0D7500FB1E44 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		65FDF63E2BEDEEE400877180 /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDF6412BEDEEE400877180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FDF6432BEDEEE400877180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		65FDF6452BEDEEE400877180 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65FDF6452BEDEEE400877180 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65FDF6482BEDEEE400877180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65FDF64A2BEDEEE600877180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65FDF64D2BEDEEE600877180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +86,6 @@
 		65FDF65E2BEDEEE600877180 /* NimbleSurveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NimbleSurveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDF6622BEDEEE600877180 /* NimbleSurveyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleSurveyUITests.swift; sourceTree = "<group>"; };
 		65FDF6642BEDEEE600877180 /* NimbleSurveyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleSurveyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		65FDF6712BEDEF5800877180 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		70BC5786DFC815D62896A808 /* Pods_NimbleSurveyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleSurveyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC95633786B08E08B6A8CDD /* Pods-NimbleSurveyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleSurveyTests.debug.xcconfig"; path = "Target Support Files/Pods-NimbleSurveyTests/Pods-NimbleSurveyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D182C049C4C7C1446DB9967E /* Pods-NimbleSurveyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleSurveyTests.release.xcconfig"; path = "Target Support Files/Pods-NimbleSurveyTests/Pods-NimbleSurveyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +118,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6576E2A92BEE047C00FB1E44 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				65FDF6452BEDEEE400877180 /* LoginViewController.swift */,
+				6576E2AA2BEE049700FB1E44 /* LoginViewModel.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6576E2AC2BEE052800FB1E44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */,
+				6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6576E2AF2BEE054B00FB1E44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6576E2C12BEE06A000FB1E44 /* BaseCodable.swift */,
+				6576E2C02BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift */,
+				6576E2BE2BEE06A000FB1E44 /* BaseCodableResponseEntity.swift */,
+				6576E2BF2BEE06A000FB1E44 /* BaseEncodable.swift */,
+				6576E2B02BEE055E00FB1E44 /* RealmManager.swift */,
+				6576E2CE2BEE0D7500FB1E44 /* UserEntity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6576E2B42BEE056F00FB1E44 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6576E2B52BEE056F00FB1E44 /* APIProvider.swift */,
+				6576E2B62BEE056F00FB1E44 /* NetworkService.swift */,
+				6576E2CA2BEE0B5F00FB1E44 /* NetworkAPI.swift */,
+				6576E2C62BEE09C900FB1E44 /* LoginRequestEntity.swift */,
+				6576E2C82BEE0A3400FB1E44 /* LoginResponseEntity.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6576E2B72BEE057000FB1E44 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6576E2B82BEE057000FB1E44 /* Constants.swift */,
+				6576E2B92BEE057000FB1E44 /* SingleExtension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		65FDF6352BEDEEE400877180 = {
 			isa = PBXGroup;
 			children = (
@@ -115,12 +197,15 @@
 			children = (
 				65FDF6412BEDEEE400877180 /* AppDelegate.swift */,
 				65FDF6432BEDEEE400877180 /* SceneDelegate.swift */,
-				65FDF6452BEDEEE400877180 /* ViewController.swift */,
+				6576E2B72BEE057000FB1E44 /* Helpers */,
+				6576E2B42BEE056F00FB1E44 /* Services */,
+				6576E2AF2BEE054B00FB1E44 /* Models */,
+				6576E2AC2BEE052800FB1E44 /* Extensions */,
+				6576E2A92BEE047C00FB1E44 /* Onboarding */,
 				65FDF6472BEDEEE400877180 /* Main.storyboard */,
 				65FDF64A2BEDEEE600877180 /* Assets.xcassets */,
 				65FDF64C2BEDEEE600877180 /* LaunchScreen.storyboard */,
 				65FDF64F2BEDEEE600877180 /* Info.plist */,
-				65FDF6712BEDEF5800877180 /* Podfile */,
 			);
 			path = NimbleSurvey;
 			sourceTree = "<group>";
@@ -272,7 +357,6 @@
 			files = (
 				65FDF64E2BEDEEE600877180 /* LaunchScreen.storyboard in Resources */,
 				65FDF64B2BEDEEE600877180 /* Assets.xcassets in Resources */,
-				65FDF6722BEDEF5800877180 /* Podfile in Resources */,
 				65FDF6492BEDEEE400877180 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,9 +463,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65FDF6462BEDEEE400877180 /* ViewController.swift in Sources */,
+				6576E2AB2BEE049700FB1E44 /* LoginViewModel.swift in Sources */,
+				6576E2BA2BEE057000FB1E44 /* APIProvider.swift in Sources */,
+				6576E2CF2BEE0D7500FB1E44 /* UserEntity.swift in Sources */,
+				65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */,
+				6576E2BD2BEE057000FB1E44 /* SingleExtension.swift in Sources */,
+				6576E2CD2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift in Sources */,
+				6576E2BB2BEE057000FB1E44 /* NetworkService.swift in Sources */,
+				6576E2CB2BEE0B5F00FB1E44 /* NetworkAPI.swift in Sources */,
+				6576E2BC2BEE057000FB1E44 /* Constants.swift in Sources */,
+				6576E2C22BEE06A000FB1E44 /* BaseCodableResponseEntity.swift in Sources */,
+				6576E2C52BEE06A000FB1E44 /* BaseCodable.swift in Sources */,
+				6576E2C32BEE06A000FB1E44 /* BaseEncodable.swift in Sources */,
+				6576E2C92BEE0A3400FB1E44 /* LoginResponseEntity.swift in Sources */,
 				65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */,
+				6576E2AE2BEE053900FB1E44 /* ViewModelType.swift in Sources */,
+				6576E2C72BEE09C900FB1E44 /* LoginRequestEntity.swift in Sources */,
 				65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */,
+				6576E2B22BEE055E00FB1E44 /* RealmManager.swift in Sources */,
+				6576E2C42BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +666,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y34Q9T3ZAB;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NimbleSurvey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

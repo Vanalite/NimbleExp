@@ -7,38 +7,28 @@ target 'NimbleSurvey' do
 
     # ignore all warnings from all pods
     inhibit_all_warnings!
+    pod 'RealmSwift'
+    pod 'Moya/RxSwift'
     pod 'SwiftyJSON'
+    pod 'RxRealm'
     pod 'RxOptional'
     pod 'SnapKit'
     pod 'SwiftyBeaver'
-
-  # Pods for NimbleSurvey
-#    post_install do |installer|
-#        installer.pods_project.targets.each do |target|
-#            target.build_configurations.each do |config|
-#                if config.name == 'Debug'
-#                    config.build_settings['OTHER_SWIFT_FLAGS'] = ['$(inherited)', '-Onone']
-#                    config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
-#                end
-#                
-#                # Disable code coverage for all Pods and Pods Project
-#                config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
-#                
-#                # Force all modules swift versions to 4.2
-#                config.build_settings['SWIFT_VERSION'] = '4.2'
-#
-#            end
-#        end
-#    end
-#    
-#    installer.pods_project.build_configurations.each do |config|
-#        config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
-#    end
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
         config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "15.0"
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+        # Disable code coverage for all Pods and Pods Project
+        config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+        config.build_settings['ENABLE_BITCODE'] = 'NO'
+
+        config.build_settings['SUPPORTED_PLATFORMS'] = 'iphoneos iphonesimulator'
+        config.build_settings['SUPPORTS_MACCATALYST'] = 'NO'
+        config.build_settings['SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD'] = 'NO'
+
       end
     end
   end

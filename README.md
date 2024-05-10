@@ -1,4 +1,4 @@
-# WeatherForecast
+# NimbleSurvey
 
 
 <p align="center">
@@ -12,7 +12,7 @@
 1. Install Xcode.
 1. Install CocoaPod.
 1. Clone this repository.
-1. Open the `WeatherForecast.xcworkspace`.
+1. Open the `NimbleSurvey.xcworkspace`.
 
 ## Project structure
 ###### Architecture: MVVM
@@ -49,14 +49,9 @@ To store all helpers and extensions
 ## Checklist
 1. Programming language: Swift is required, Objective-C is optional.
 2. Design app's architecture (recommend VIPER or MVP, MVVM but not mandatory)
-3. UI should be looks like in attachment.4. WriteUnitTests
+3. UI should be looks like in attachment.
+4. WriteUnitTests
 5. Exceptionhandling
-6. Scaling Text: Display size and font size: To change the size of items on your screen,
-adjust the display size or font size.
-7. The application is able to proceed searching with a condition of the search term length
-must be from 3 characters or above.
-8. The application supports caching mechanism so as to prevent the app from
-generating a bunch of API requests
 
 
 ## Copyright

@@ -21,8 +21,10 @@ class NetworkService: NSObject {
         self.apiProvider = apiProvider
     }
 
-    func loginRequest(_ email: String, password: String? = nil)-> Single<BaseCodableResponseEntity> {
+    func loginRequest(_ email: String, password: String)-> Single<LoginResponseEntity> {
         let request = LoginRequestEntity()
+        request.email = email
+        request.password = password
         return requestObjectOnMainThread(endpoint: .login(request: request))
     }
 

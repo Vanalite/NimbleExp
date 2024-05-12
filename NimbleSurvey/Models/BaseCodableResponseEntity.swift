@@ -24,10 +24,6 @@ class BaseCodableResponseEntity: BaseCodable {
         ]
     }
 
-    required init() {
-        super.init()
-    }
-
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
 
@@ -38,7 +34,11 @@ class BaseCodableResponseEntity: BaseCodable {
         apiInfo = try? values?.decodeIfPresent(APIInfoEntity.self, forKey: .apiInfo)
         error = try? values?.decodeIfPresent(APIErrorEntity.self, forKey: .error)
     }
-
+    
+    required init() {
+        fatalError("init() has not been implemented")
+    }
+    
     private enum CodingKeysBaseCodableResponseEntity: String, CodingKey {
         case status, message, error, code, apiInfo
     }

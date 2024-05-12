@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var passwordWrapperView: UIView!
 
     var viewModel: LoginViewModel!
 
@@ -31,8 +32,8 @@ class LoginViewController: UIViewController {
         bgImageView.image = bgImageView.image?.blurEffect(20)
         emailTextField.layer.cornerRadius = 12
         emailTextField.layer.masksToBounds = true
-        passwordTextField.layer.cornerRadius = 12
-        passwordTextField.layer.masksToBounds = true
+        passwordWrapperView.layer.cornerRadius = 12
+        passwordWrapperView.layer.masksToBounds = true
         loginButton.layer.cornerRadius = 12
         loginButton.layer.masksToBounds = true
         setGradientBackground()
@@ -57,7 +58,10 @@ class LoginViewController: UIViewController {
     }
     
     private func buildViewModelInput() -> LoginViewModel.Input {
-        return .init()
+        return .init(emailText: emailTextField.rx.text.trimmed.asDriver(),
+                     passwordText: passwordTextField.rx.text.trimmed.asDriver(),
+                     loginButtonTap: loginButton.rx.tap.asDriver()
+        )
     }
 }
 

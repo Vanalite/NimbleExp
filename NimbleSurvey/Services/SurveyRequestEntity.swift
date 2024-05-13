@@ -8,9 +8,11 @@
 import Foundation
 
 class SurveyRequestEntity: BaseCodable {
-    var email = ""
-    var password = ""
-    var grantType = "password"
-    var clientId = "ly1nj6n11vionaie65emwzk575hnnmrk"
-    var clientSecret = "hOzsTeFlT6ko0dme22uGbQal04SBPYc1"
+    var pageNumber = 1
+    var pageSize = 3
+
+    private enum CodingKeysSurveyRequestEntity: String, CodingKey {
+        case pageNumber = "page[number]"
+        case pageSize = "page[size]"
+    }
 }

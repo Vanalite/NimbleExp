@@ -12,17 +12,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MenuView" customModule="NimbleSurvey" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <rect key="frame" x="0.0" y="0.0" width="240" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-U2-FJj" userLabel="HeaderWrapperView">
-                    <rect key="frame" x="20" y="80" width="353" height="63"/>
+                    <rect key="frame" x="20" y="80" width="200" height="63"/>
                     <subviews>
                         <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DT9-FZ-Gc5" userLabel="UserWrapperView">
-                            <rect key="frame" x="0.0" y="0.0" width="312" height="63"/>
+                            <rect key="frame" x="0.0" y="0.0" width="159" height="63"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oui-DM-Ttl" userLabel="UsernameLabel">
-                                    <rect key="frame" x="0.0" y="11.333333333333329" width="168.66666666666666" height="40.666666666666664"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oui-DM-Ttl" userLabel="UsernameLabel">
+                                    <rect key="frame" x="0.0" y="11.333333333333329" width="77" height="40.666666666666664"/>
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="34"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IR-Wd-ECf" userLabel="AvatarButton">
-                            <rect key="frame" x="317" y="18" width="36" height="36"/>
+                            <rect key="frame" x="164" y="18" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="36" id="Abr-Dd-aC6"/>
                                 <constraint firstAttribute="height" constant="36" id="IyB-PJ-L4S"/>
@@ -62,14 +62,14 @@
                     </constraints>
                 </view>
                 <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjX-aQ-Ban" userLabel="Separator">
-                    <rect key="frame" x="20" y="163" width="353" height="1"/>
+                    <rect key="frame" x="20" y="163" width="200" height="1"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="4Tg-j4-J0T"/>
                     </constraints>
                 </view>
                 <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCJ-no-zjw">
-                    <rect key="frame" x="20" y="184" width="353" height="56"/>
+                    <rect key="frame" x="20" y="184" width="200" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="eLq-VA-Lvk"/>
                     </constraints>
@@ -78,6 +78,9 @@
                         <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="logoutDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cfc-6A-i4x"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

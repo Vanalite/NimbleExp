@@ -48,7 +48,9 @@ class HomeViewController: UIViewController {
 
         viewModel = HomeViewModel()
 
-//        viewModel.fetchSurvey().drive()
+        viewModel.fetchSurvey().drive { [weak self] surveys in
+            
+        }
     }
 
     private func setCurrentTime() {
@@ -64,6 +66,7 @@ class HomeViewController: UIViewController {
         containerView.frame = self.view.frame
 
         slideInView = MenuView.instantiate(message: "")
+        slideInView.delegate = self
 
         window?.addSubview(containerView)
         let tapGesture = UITapGestureRecognizer(target: self,
@@ -77,5 +80,12 @@ class HomeViewController: UIViewController {
 
     @objc private func slideMenuOut() {
         containerView.removeFromSuperview()
+    }
+}
+
+extension HomeViewController: MenuViewDelegate {
+    func logoutDidTap(_ sender: Any) {
+        containerView.removeFromSuperview()
+        navigationController?.popToRootViewController(animated: true)
     }
 }

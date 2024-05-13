@@ -12,7 +12,7 @@ import RxSwift
 enum NetworkAPI: TargetType {
     static let kLogin = "/oauth/token"
     static let kFetchSurvey = "surveys"
-    
+
     case login(request: LoginRequestEntity)
     case fetchSurvey(request: SurveyRequestEntity)
 
@@ -20,11 +20,11 @@ enum NetworkAPI: TargetType {
         return Data()
     }
 
-
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Authorization": "Bearer F6oR17w8OOvkrjb9Hg1ba5g2B4WpKTEbMueEU-V2xuQ"
         ]
     }
 

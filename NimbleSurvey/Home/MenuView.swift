@@ -8,9 +8,14 @@
 import Foundation
 import UIKit
 
+protocol MenuViewDelegate: AnyObject {
+    func logoutDidTap(_ sender: Any)
+}
+
 class MenuView: UIView {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
+    weak var delegate: MenuViewDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,6 +29,10 @@ class MenuView: UIView {
         let view: MenuView = initFromNib()
         view.logoutButton.contentHorizontalAlignment = .left
         return view
+    }
+
+    @IBAction func logoutDidTap(_ sender: Any) {
+        delegate?.logoutDidTap(sender)
     }
 }
 

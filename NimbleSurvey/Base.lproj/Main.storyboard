@@ -175,7 +175,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15A-NU-DfK" userLabel="AvatarButton">
-                                        <rect key="frame" x="317" y="18" width="36" height="36"/>
+                                        <rect key="frame" x="317" y="27.333333333333329" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="d4X-v6-xt9"/>
                                             <constraint firstAttribute="width" constant="36" id="kIF-uk-MfB"/>
@@ -193,7 +193,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="15A-NU-DfK" secondAttribute="trailing" id="9Jb-lT-4uo"/>
                                     <constraint firstItem="15A-NU-DfK" firstAttribute="leading" secondItem="t1h-3p-N1W" secondAttribute="trailing" constant="5" id="CeY-jY-LQs"/>
-                                    <constraint firstItem="15A-NU-DfK" firstAttribute="firstBaseline" secondItem="t1h-3p-N1W" secondAttribute="firstBaseline" id="Rm2-Dv-WsH"/>
+                                    <constraint firstItem="15A-NU-DfK" firstAttribute="centerY" secondItem="9dB-37-LZg" secondAttribute="centerY" id="Jgd-Wr-TEP"/>
                                     <constraint firstAttribute="bottom" secondItem="t1h-3p-N1W" secondAttribute="bottom" id="T2d-F1-mmh"/>
                                     <constraint firstItem="t1h-3p-N1W" firstAttribute="top" secondItem="45T-ps-Otp" secondAttribute="top" id="pxc-tk-jhN"/>
                                     <constraint firstAttribute="height" constant="63" id="tZO-py-HuW"/>
@@ -206,14 +206,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="ZlF-54-R6f"/>
                                     <constraint firstAttribute="width" id="qDi-nX-lHK"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aib-o8-R76" userLabel="Empty View">
-                                <rect key="frame" x="196" y="165" width="0.0" height="521"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="Bpi-bz-974"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="wW1-Dh-Zlw"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="byZ-Js-5LX">

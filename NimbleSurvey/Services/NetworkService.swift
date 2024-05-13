@@ -21,16 +21,18 @@ class NetworkService: NSObject {
         self.apiProvider = apiProvider
     }
 
-    func loginRequest(_ email: String, password: String)-> Single<LoginResponseEntity> {
+    func loginRequest(_ email: String, password: String) -> Single<LoginResponseEntity> {
         let request = LoginRequestEntity()
         request.email = email
         request.password = password
-        return requestObjectOnMainThread(endpoint: .login(request: request), ignoreUnauthorized: true)
+        return requestObject(endpoint: .login(request: request), ignoreUnauthorized: true)
     }
 
-    func fetchSurvey() -> Single<SurveyResponseEntity> {
+    func fetchSurvey(pageNumber: Int = 1, pageSize: Int = 5) -> Single<SurveyResponseEntity> {
         let request = SurveyRequestEntity()
-        return requestObjectOnMainThread(endpoint: .fetchSurvey(request: request))
+        request.pageSize = pageSize
+        request.pageNumber = pageNumber
+        return requestObject(endpoint: .fetchSurvey(request: request))
     }
 
     func request(
@@ -38,11 +40,11 @@ class NetworkService: NSObject {
         ignoreUnauthorized: Bool = false,
         maxRetryAttempts: Int = RetryableConfig.maxRetryAttempts
     ) -> Single<Response> {
-        let request = apiProvider
+        return apiProvider
             .provider
             .rx
             .request(endpoint, callbackQueue: DispatchQueue.global(qos: .utility))
-        return request
+            .filterSuccessfulStatusCodes()
             .mapApiMoyaError()
             .retry(maxRetryAttempts)
     }

@@ -35,7 +35,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IR-Wd-ECf" userLabel="AvatarButton">
-                            <rect key="frame" x="164" y="18" width="36" height="36"/>
+                            <rect key="frame" x="164" y="13.666666666666671" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="36" id="Abr-Dd-aC6"/>
                                 <constraint firstAttribute="height" constant="36" id="IyB-PJ-L4S"/>
@@ -53,10 +53,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="DT9-FZ-Gc5" secondAttribute="bottom" id="BjZ-Bb-eeL"/>
-                        <constraint firstItem="0IR-Wd-ECf" firstAttribute="firstBaseline" secondItem="DT9-FZ-Gc5" secondAttribute="firstBaseline" id="GFe-1p-RMu"/>
                         <constraint firstItem="0IR-Wd-ECf" firstAttribute="leading" secondItem="DT9-FZ-Gc5" secondAttribute="trailing" constant="5" id="Gas-Nz-ktC"/>
                         <constraint firstAttribute="trailing" secondItem="0IR-Wd-ECf" secondAttribute="trailing" id="ely-dN-Iab"/>
                         <constraint firstItem="DT9-FZ-Gc5" firstAttribute="leading" secondItem="1C5-U2-FJj" secondAttribute="leading" id="fea-bR-1Pc"/>
+                        <constraint firstItem="0IR-Wd-ECf" firstAttribute="centerY" secondItem="9A3-4x-i8e" secondAttribute="centerY" id="lPe-pg-l4x"/>
                         <constraint firstItem="DT9-FZ-Gc5" firstAttribute="top" secondItem="1C5-U2-FJj" secondAttribute="top" id="osO-IR-OXb"/>
                         <constraint firstAttribute="height" constant="63" id="wMB-Rv-kMj"/>
                     </constraints>

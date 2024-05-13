@@ -38,6 +38,9 @@ class HomeViewController: UIViewController {
     private func configureUI() {
         setCurrentTime()
         containerView.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(slideMenuOut))
+        containerView.addGestureRecognizer(tapGesture)
     }
 
     private func bindViewModel() {
@@ -49,7 +52,7 @@ class HomeViewController: UIViewController {
         viewModel = HomeViewModel()
 
         viewModel.fetchSurvey().drive { [weak self] surveys in
-            
+
         }
     }
 
@@ -61,7 +64,11 @@ class HomeViewController: UIViewController {
     }
 
     private func slideMenuIn() {
-        let window = UIApplication.shared.keyWindow
+        let window = UIApplication
+            .shared
+            .connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+            .last
         containerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         containerView.frame = self.view.frame
 
@@ -69,9 +76,6 @@ class HomeViewController: UIViewController {
         slideInView.delegate = self
 
         window?.addSubview(containerView)
-        let tapGesture = UITapGestureRecognizer(target: self,
-                                                action: #selector(slideMenuOut))
-        containerView.addGestureRecognizer(tapGesture)
 
         let screenSize = UIScreen.main.bounds.size
         slideInView.frame = CGRect(x: screenSize.width - slideInViewWidth, y: 0, width: slideInViewWidth, height: screenSize.height)

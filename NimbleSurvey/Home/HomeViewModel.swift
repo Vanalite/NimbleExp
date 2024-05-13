@@ -12,6 +12,7 @@ import RxSwift
 
 class HomeViewModel {
 
+    var surveyList: [SurveyDataEntity] = []
     private let netWorkService : NetworkService
     private let realm: Realm
     private let disposeBag = DisposeBag()
@@ -23,7 +24,7 @@ class HomeViewModel {
     }
 
     func fetchSurvey() -> Driver<SurveyResponseEntity> {
-        return self.netWorkService.fetchSurvey()
+        return self.netWorkService.fetchSurvey(pageNumber: 1)
             .asDriver(onErrorJustReturn: SurveyResponseEntity())
     }
 }

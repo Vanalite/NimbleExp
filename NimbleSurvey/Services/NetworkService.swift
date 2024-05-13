@@ -28,6 +28,11 @@ class NetworkService: NSObject {
         return requestObjectOnMainThread(endpoint: .login(request: request), ignoreUnauthorized: true)
     }
 
+    func fetchSurvey() -> Single<SurveyResponseEntity> {
+        let request = SurveyRequestEntity()
+        return requestObjectOnMainThread(endpoint: .fetchSurvey(request: request))
+    }
+
     func request(
         endpoint: NetworkAPI,
         ignoreUnauthorized: Bool = false,

@@ -31,6 +31,8 @@ class LoginViewController: UIViewController {
 
     private func configureUI() {
         title = "Nimble"
+        emailTextField.text = "dev@example.com"
+        passwordTextField.text = "password"
         bgImageView.image = bgImageView.image?.blurEffect(20)
         emailTextField.layer.cornerRadius = 12
         emailTextField.layer.masksToBounds = true
@@ -79,7 +81,7 @@ class LoginViewController: UIViewController {
                 if self.viewModel.validation() {
                     self.viewModel.handleLogin()
                         .drive({ response in
-                            print(response)
+                            self.navigateToHome()
                         })
                 } else {
                     self.showAlert(msg: self.viewModel.errorMsg.value)
@@ -88,10 +90,16 @@ class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func showAlert(msg : String) {
+    private func showAlert(msg : String) {
         let alert = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+
+    private func navigateToHome() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+        navigationController?.pushViewController(homeViewController, animated: true)
     }
 }
 

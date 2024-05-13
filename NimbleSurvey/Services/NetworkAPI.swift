@@ -11,7 +11,10 @@ import RxSwift
 
 enum NetworkAPI: TargetType {
     static let kLogin = "/oauth/token"
+    static let kFetchSurvey = "surveys"
+    
     case login(request: LoginRequestEntity)
+    case fetchSurvey(request: SurveyRequestEntity)
 
     var sampleData: Data {
         return Data()
@@ -33,6 +36,8 @@ enum NetworkAPI: TargetType {
         switch self {
         case .login:
             return .post
+        case .fetchSurvey:
+            return .get
         }
     }
 
@@ -40,6 +45,8 @@ enum NetworkAPI: TargetType {
         switch self {
         case .login:
             return NetworkAPI.kLogin
+        case .fetchSurvey:
+            return NetworkAPI.kFetchSurvey
         }
     }
 
@@ -50,6 +57,8 @@ enum NetworkAPI: TargetType {
     var task: Task {
         switch self {
         case .login(let request):
+            return .requestParameters(parameters: request.toJSON(), encoding: JSONEncoding.default)
+        case .fetchSurvey(let request):
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
         }
     }

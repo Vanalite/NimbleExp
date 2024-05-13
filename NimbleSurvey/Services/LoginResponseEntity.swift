@@ -21,7 +21,7 @@ class LoginResponseEntity: BaseCodableResponseEntity {
     }
     
     required init() {
-        fatalError("init() has not been implemented")
+        super.init()
     }
     
     private enum CodingKeysLoginResponseEntity: String, CodingKey {
@@ -48,7 +48,7 @@ class LoginToken: BaseCodableResponseEntity {
     }
     
     required init() {
-        fatalError("init() has not been implemented")
+        super.init()
     }
     
     private enum CodingKeysLoginToken: String, CodingKey {
@@ -66,7 +66,7 @@ class LoginTokenAttribute: BaseCodableResponseEntity {
     var createdAt: Double = 0
     
     required init() {
-        fatalError("init() has not been implemented")
+        super.init()
     }
     
     required init(from decoder: Decoder) throws {

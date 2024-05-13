@@ -11,9 +11,10 @@ import RxCocoa
 import RealmSwift
 import RxRealm
 
-final class LoginViewModel: ViewModelType {
-    private var rxLoginItems: Observable<(Array<UserEntity>, RealmChangeset?)> = Observable.empty()
-
+final class LoginViewModel {
+    var email = BehaviorRelay<String>(value: "")
+    var password = BehaviorRelay<String>(value: "")
+    var errorMsg = BehaviorRelay<String>(value: "")
     private let netWorkService : NetworkService
     private let realm: Realm
 
@@ -27,19 +28,32 @@ final class LoginViewModel: ViewModelType {
         print("realm path: \(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
     }
 
-    func transform(input: Input) -> Output {
-        let handleLogin = input.loginButtonTap
-            .withLatestFrom(Driver.combineLatest(input.emailText, input.passwordText))
-            .throttle(.seconds(1), latest: false)
-            .asObservable()
-            .flatMap { [weak self] email, password -> Observable<LoginResponseEntity> in
-                guard let self = self,
-                      let email = email,
-                      let password = password
-                else { return .empty() }
-                return self.netWorkService.loginRequest(email, password: password)
-                    .asObservable()
-            }
+    func validation() -> Bool {
+
+        if email.value.isEmpty {
+            errorMsg.accept("Please enter email")
+            return false
+        } else if !(validateEmail()) {
+            errorMsg.accept("Please enter valid email")
+            return false
+        } else if password.value.isEmpty {
+            errorMsg.accept("Please enter password")
+            return false
+        }
+
+        return true
+    }
+
+    func validateEmail() -> Bool {
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email.value)
+    }
+
+    func handleLogin() -> Driver<LoginResponseEntity> {
+        return self.netWorkService.loginRequest(email.value, password: password.value)
             .do { [weak self] user in
                 guard let self = self else { return }
                 try self.realm.write {
@@ -47,21 +61,5 @@ final class LoginViewModel: ViewModelType {
                 }
             }
             .asDriver(onErrorJustReturn: LoginResponseEntity())
-        return Output(reloadData: Driver<Void>.just(()),
-                      items: handleLogin)
-    }
-}
-
-
-extension LoginViewModel {
-    struct Input {
-        let emailText: Driver<String?>
-        let passwordText: Driver<String?>
-        let loginButtonTap: Driver<Void>
-    }
-
-    struct Output {
-        let reloadData: Driver<Void>
-        let items: Driver<LoginResponseEntity>
     }
 }

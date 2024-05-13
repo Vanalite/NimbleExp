@@ -7,6 +7,7 @@
 
 import UIKit
 import RxCocoa
+import RxSwift
 
 class LoginViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordWrapperView: UIView!
 
     var viewModel: LoginViewModel!
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +55,43 @@ class LoginViewController: UIViewController {
 
     private func bindViewModel() {
         viewModel = LoginViewModel()
-        let input = buildViewModelInput()
-        let output = viewModel.transform(input: input)
+
+        emailTextField
+            .rx.text
+            .orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
+
+
+        passwordTextField
+            .rx.text
+            .orEmpty
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+
+
+        loginButton
+            .rx.tap
+            .do(onNext :{ [unowned self] in
+                self.view.endEditing(true)
+            })
+            .subscribe(onNext: { [unowned self] in
+                if self.viewModel.validation() {
+                    self.viewModel.handleLogin()
+                        .drive({ response in
+                            print(response)
+                        })
+                } else {
+                    self.showAlert(msg: self.viewModel.errorMsg.value)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
-    private func buildViewModelInput() -> LoginViewModel.Input {
-        return .init(emailText: emailTextField.rx.text.trimmed.asDriver(),
-                     passwordText: passwordTextField.rx.text.trimmed.asDriver(),
-                     loginButtonTap: loginButton.rx.tap.asDriver()
-        )
+    func showAlert(msg : String) {
+        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

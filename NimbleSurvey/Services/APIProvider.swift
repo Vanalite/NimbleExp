@@ -60,7 +60,7 @@ public final class NetworkLoggerPlugin: Moya.PluginType {
     public let isVerbose: Bool
     public let cURL: Bool
 
-    /// Initializes a INSNetworkLoggerPlugin.
+    /// Initializes a Plugin.
     public init(verbose: Bool = true,
                 cURL: Bool = true, output: ((_ separator: String, _ terminator: String, _ items: Any...) -> Void)? = nil, requestDataFormatter: ((Data) -> (String))? = nil, responseDataFormatter: ((Data) -> (Data))? = nil) {
         self.cURL = cURL
@@ -75,6 +75,7 @@ public final class NetworkLoggerPlugin: Moya.PluginType {
 
         if let request = request as? CustomDebugStringConvertible, cURL {
             output(separator, terminator, request.debugDescription)
+            print(request.debugDescription)
             return
         }
 
@@ -156,6 +157,7 @@ private extension NetworkLoggerPlugin {
             output += [stringData]
         }
         output += [terminator]
+        print(output)
         return output
     }
 }

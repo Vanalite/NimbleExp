@@ -10,7 +10,7 @@ import RxSwift
 
 
 enum NetworkAPI: TargetType {
-    static let kLogin = "/login"
+    static let kLogin = "/oauth/token"
     case login(request: LoginRequestEntity)
 
     var sampleData: Data {
@@ -21,7 +21,7 @@ enum NetworkAPI: TargetType {
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            "Authorization": "Basic bGludXggYmFzZTY0IGRlY29kZQo="
+            "Accept": "application/json"
         ]
     }
 
@@ -32,7 +32,7 @@ enum NetworkAPI: TargetType {
     var method: Moya.Method {
         switch self {
         case .login:
-            return .get
+            return .post
         }
     }
 

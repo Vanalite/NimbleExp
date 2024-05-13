@@ -25,7 +25,7 @@ class NetworkService: NSObject {
         let request = LoginRequestEntity()
         request.email = email
         request.password = password
-        return requestObjectOnMainThread(endpoint: .login(request: request))
+        return requestObjectOnMainThread(endpoint: .login(request: request), ignoreUnauthorized: true)
     }
 
     func request(

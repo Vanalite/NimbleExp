@@ -8,7 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let baseURLPath = "https://survey-api-staging.nimblehq.co/api/v1"
+    static let baseURLPath = "https://nimble-survey-web-mock.fly.dev"
     static let authenticationToken = "Basic xxx"
     static let AppID = "60c6fbeb4b93ac653c492ba806fc346d"
 

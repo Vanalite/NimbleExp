@@ -36,7 +36,7 @@ class BaseCodableResponseEntity: BaseCodable {
     }
     
     required init() {
-        fatalError("init() has not been implemented")
+        super.init()
     }
     
     private enum CodingKeysBaseCodableResponseEntity: String, CodingKey {

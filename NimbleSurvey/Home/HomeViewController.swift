@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
 
     var viewModel: HomeViewModel!
     var containerView = UIView()
-    var menuView = MenuView()
+    let menuView = MenuView.instantiate(message: "")
     let slideInViewWidth: CGFloat = 240
     let disposeBag = DisposeBag()
 
@@ -56,6 +56,7 @@ class HomeViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(slideMenuOut))
         containerView.addGestureRecognizer(tapGesture)
+        menuView.delegate = self
     }
 
     private func bindViewModel() {
@@ -84,9 +85,6 @@ class HomeViewController: UIViewController {
             .last
         containerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         containerView.frame = self.view.frame
-
-        menuView = MenuView.instantiate(message: "")
-        menuView.delegate = self
 
         window?.addSubview(containerView)
 

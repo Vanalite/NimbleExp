@@ -91,6 +91,40 @@ class SurveyAttribute: BaseCodableResponseEntity {
     var inactiveAt: String = ""
     var surveyType: String = ""
 
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+
+        let values = try? decoder.container(keyedBy: CodingKeysSurveyAttribute.self)
+        if let title = try? values?.decodeIfPresent(String.self, forKey: .title) {
+            self.title = title
+        }
+        if let descriptionString = try? values?.decodeIfPresent(String.self, forKey: .descriptionString) {
+            self.descriptionString = descriptionString
+        }
+        if let isActive = try? values?.decodeIfPresent(Bool.self, forKey: .isActive) {
+            self.isActive = isActive
+        }
+        if let coverImageUrl = try? values?.decodeIfPresent(String.self, forKey: .coverImageUrl) {
+            self.coverImageUrl = coverImageUrl
+        }
+        if let createdAt = try? values?.decodeIfPresent(String.self, forKey: .createdAt) {
+            self.createdAt = createdAt
+        }
+        if let activeAt = try? values?.decodeIfPresent(String.self, forKey: .activeAt) {
+            self.activeAt = activeAt
+        }
+        if let inactiveAt = try? values?.decodeIfPresent(String.self, forKey: .inactiveAt) {
+            self.inactiveAt = inactiveAt
+        }
+        if let surveyType = try? values?.decodeIfPresent(String.self, forKey: .surveyType) {
+            self.surveyType = surveyType
+        }
+    }
+
+    required init() {
+        super.init()
+    }
+
     private enum CodingKeysSurveyAttribute: String, CodingKey {
         case title
         case descriptionString = "description"

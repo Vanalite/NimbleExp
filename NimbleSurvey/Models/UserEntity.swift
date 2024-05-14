@@ -21,22 +21,28 @@ class UserEntity: BaseCodableResponseEntity {
         try super.init(from: decoder)
 
         let values = try? decoder.container(keyedBy: CodingKeysUserEntity.self)
-        if let email = try? values?.decode(String.self, forKey: .email) {
-            self.email = email
-        }
+        if let data = try? values?.nestedContainer(keyedBy: CodingKeysUserEntity.self, forKey: .data) {
+            if let attribute = try? data.nestedContainer(keyedBy: CodingKeysUserEntity.self, forKey: .attributes) {
+                if let email = try? attribute.decodeIfPresent(String.self, forKey: .email) {
+                    self.email = email
+                }
 
-        if let name = try? values?.decode(String.self, forKey: .name) {
-            self.name = name
-        }
+                if let name = try? attribute.decodeIfPresent(String.self, forKey: .name) {
+                    self.name = name
+                }
 
-        if let avatarUrl = try? values?.decodeIfPresent(String.self, forKey: .avatarURL) {
-            self.avatarURL = avatarUrl
+                if let avatarUrl = try? attribute.decodeIfPresent(String.self, forKey: .avatarURL) {
+                    self.avatarURL = avatarUrl
+                }
+            }
         }
     }
 
     private enum CodingKeysUserEntity: String, CodingKey {
-        case email = "data.attributes.email"
-        case name = "data.attributes.name"
-        case avatarURL = "data.attributes.avatar_url"
+        case data
+        case attributes
+        case email = "email"
+        case name = "name"
+        case avatarURL = "avatar_url"
     }
 }

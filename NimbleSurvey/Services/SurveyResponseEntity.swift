@@ -16,7 +16,7 @@ class SurveyResponseEntity: BaseCodableResponseEntity {
 
         let values = try? decoder.container(keyedBy: CodingKeysSurveyResponseEntity.self)
 
-        if let array = try? values?.decodeIfPresent([SurveyDataEntity].self, forKey: .data) {
+        if let array = try? values?.decode([SurveyDataEntity].self, forKey: .data) {
             data?.removeAll()
             data?.append(contentsOf: array)
         }

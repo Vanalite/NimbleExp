@@ -32,7 +32,6 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureUI()
         bindViewModel()
-
     }
 
     private func configureUI() {
@@ -47,6 +46,10 @@ class HomeViewController: UIViewController {
         avatarButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.slideMenuIn()
+        }).disposed(by: disposeBag)
+
+        startSurveyButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.navigateToSurveyEntrance()
         }).disposed(by: disposeBag)
 
         viewModel = HomeViewModel()
@@ -80,6 +83,12 @@ class HomeViewController: UIViewController {
         let screenSize = UIScreen.main.bounds.size
         slideInView.frame = CGRect(x: screenSize.width - slideInViewWidth, y: 0, width: slideInViewWidth, height: screenSize.height)
         containerView.addSubview(slideInView)
+    }
+
+    private func navigateToSurveyEntrance() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let surveyEntranceViewController = storyBoard.instantiateViewController(withIdentifier: "SurveyEntranceViewController")
+        navigationController?.pushViewController(surveyEntranceViewController, animated: true)
     }
 
     @objc private func slideMenuOut() {

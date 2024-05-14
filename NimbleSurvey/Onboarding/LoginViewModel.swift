@@ -58,6 +58,11 @@ final class LoginViewModel {
             .catch({ error in
                 return .just(LoginResponseEntity())
             })
+            .do(onNext: { [weak self] loginToken in
+                if let accessToken = loginToken.data?.attributes?.accessToken {
+                    self?.netWorkService.apiProvider.authenticationToken = accessToken
+                }
+            })
             .asDriverOnErrorJustComplete()
     }
 }

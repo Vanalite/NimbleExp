@@ -71,8 +71,27 @@ class LoginTokenAttribute: BaseCodableResponseEntity {
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
-    }
+        let values = try? decoder.container(keyedBy: CodingKeysLoginTokenAttribute.self)
+        if let accessToken = try? values?.decodeIfPresent(String.self, forKey: .accessToken) {
+            self.accessToken = accessToken
+        }
 
+        if let tokenType = try? values?.decodeIfPresent(String.self, forKey: .tokenType) {
+            self.tokenType = tokenType
+        }
+
+        if let expiresIn = try? values?.decodeIfPresent(Int.self, forKey: .expiresIn) {
+            self.expiresIn = expiresIn
+        }
+
+        if let refreshToken = try? values?.decodeIfPresent(String.self, forKey: .refreshToken) {
+            self.refreshToken = refreshToken
+        }
+
+        if let createdAt = try? values?.decodeIfPresent(Double.self, forKey: .createdAt) {
+            self.createdAt = createdAt
+        }
+    }
 
     private enum CodingKeysLoginTokenAttribute: String, CodingKey {
         case accessToken = "access_token"

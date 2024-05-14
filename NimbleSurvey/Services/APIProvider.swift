@@ -26,14 +26,16 @@ class APIProvider {
 
     static let shared = APIProvider()
     let provider: MoyaProvider<NetworkAPI>
-
+    var authenticationToken = ""
     init(endpointClosure: @escaping MoyaProvider<NetworkAPI>.EndpointClosure = MoyaProvider.defaultEndpointMapping,
          stubClosure: MoyaProvider<NetworkAPI>.StubClosure? = nil) {
         var plugins: [Moya.PluginType] = []
+        let requestPlugin = RequestPlugin()
         let networkLoggerPlugin: NetworkLoggerPlugin = NetworkLoggerPlugin(verbose: true, cURL: true , responseDataFormatter: JSONResponseDataFormatter)
 
 
         plugins.append(networkLoggerPlugin)
+        plugins.append(requestPlugin)
         let defaultStubClosure = { (target: TargetType) -> Moya.StubBehavior in
             guard let _ = target as? NetworkAPI else { return .never }
             return .immediate
@@ -101,18 +103,6 @@ public final class NetworkLoggerPlugin: Moya.PluginType {
             output(separator, terminator, items)
         }
         logger.verbose(items)
-    }
-}
-
-extension URLRequest {
-
-    var filteredHTTPHeaderFields: [String : String] {
-        let ignoreFields = ["Auth", "Content-Type"]
-
-        return self.allHTTPHeaderFields?.filter({ (key, value) -> Bool in
-            return !ignoreFields.contains(key)
-        }) ?? [:]
-
     }
 }
 

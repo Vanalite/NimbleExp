@@ -13,6 +13,7 @@ enum Constants {
     static let AppID = "60c6fbeb4b93ac653c492ba806fc346d"
 
     static let noNetworkErrorMessage = "No internet connection"
+    static let AuthenticationHeader = "Authorization"
 }
 
 enum HTTPCode {

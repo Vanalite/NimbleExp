@@ -14,6 +14,7 @@ target 'NimbleSurvey' do
     pod 'RxOptional'
     pod 'SnapKit'
     pod 'SwiftyBeaver'
+    pod 'Kingfisher'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

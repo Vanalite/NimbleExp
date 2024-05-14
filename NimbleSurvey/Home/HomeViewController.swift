@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import RxCocoa
 import RxSwift
+import Kingfisher
 
 class HomeViewController: UIViewController {
 
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
 
     var viewModel: HomeViewModel!
     var containerView = UIView()
-    var slideInView = MenuView()
+    var menuView = MenuView()
     let slideInViewWidth: CGFloat = 240
     let disposeBag = DisposeBag()
 
@@ -32,6 +32,22 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureUI()
         bindViewModel()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchData()
+    }
+
+    private func fetchData() {
+        viewModel.fetchSurvey().drive(onNext: { [weak self] surveys in
+            self?.reconfigureUI(surveys)
+        })
+        .disposed(by: disposeBag)
+        viewModel.fetchUser().drive(onNext: { [weak self] user in
+            self?.assignUsername(user: user)
+        })
+        .disposed(by: disposeBag)
     }
 
     private func configureUI() {
@@ -51,11 +67,6 @@ class HomeViewController: UIViewController {
         startSurveyButton.rx.tap.subscribe(onNext: { [weak self] _ in
             self?.navigateToSurveyEntrance()
         }).disposed(by: disposeBag)
-
-        viewModel.fetchSurvey().drive(onNext: { [weak self] surveys in
-            self?.reconfigureUI(surveys)
-        })
-        .disposed(by: disposeBag)
     }
 
     private func setCurrentTime() {
@@ -74,14 +85,14 @@ class HomeViewController: UIViewController {
         containerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         containerView.frame = self.view.frame
 
-        slideInView = MenuView.instantiate(message: "")
-        slideInView.delegate = self
+        menuView = MenuView.instantiate(message: "")
+        menuView.delegate = self
 
         window?.addSubview(containerView)
 
         let screenSize = UIScreen.main.bounds.size
-        slideInView.frame = CGRect(x: screenSize.width - slideInViewWidth, y: 0, width: slideInViewWidth, height: screenSize.height)
-        containerView.addSubview(slideInView)
+        menuView.frame = CGRect(x: screenSize.width - slideInViewWidth, y: 0, width: slideInViewWidth, height: screenSize.height)
+        containerView.addSubview(menuView)
     }
 
     private func navigateToSurveyEntrance() {
@@ -95,7 +106,22 @@ class HomeViewController: UIViewController {
     }
 
     private func reconfigureUI(_ surveys: SurveyResponseEntity) {
+        guard let survey = surveys.data?.first?.attributes else { return }
+        titleLabel.text = survey.title
+        descriptionLabel.text = survey.descriptionString
+        let url = URL(string: survey.coverImageUrl)
+        bgImageView.kf.setImage(
+            with: url,
+            options: [
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ]
+        )
+    }
 
+    private func assignUsername(user: UserEntity) {
+        menuView.assignUsername(user.name)
     }
 }
 

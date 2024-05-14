@@ -12,6 +12,7 @@ PODS:
     - CwlCatchException (~> 2.2.0)
     - CwlMachBadInstructionHandler (~> 2.2.0)
     - CwlPosixPreconditionTesting (~> 2.2.0)
+  - Kingfisher (7.11.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -48,6 +49,7 @@ PODS:
 
 DEPENDENCIES:
   - Cuckoo
+  - Kingfisher
   - Moya/RxSwift
   - Nimble
   - RealmSwift
@@ -68,6 +70,7 @@ SPEC REPOS:
     - CwlMachBadInstructionHandler
     - CwlPosixPreconditionTesting
     - CwlPreconditionTesting
+    - Kingfisher
     - Moya
     - Nimble
     - Realm
@@ -91,6 +94,7 @@ SPEC CHECKSUMS:
   CwlMachBadInstructionHandler: ea1030428925d9bf340882522af30712fb4bf356
   CwlPosixPreconditionTesting: a125dee731883f2582715f548c6b6c92c7fde145
   CwlPreconditionTesting: ccfd08aca58d14e04062b2a3dd2fd52e09857453
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   Nimble: 3ac6c6b0b7e9835d1540b6507d8054b12a415536
   Realm: a0a6a99e3dfa8959358a95c3c05845b5e5d6af30
@@ -106,6 +110,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 9e7c5df6cf4e745e4277b4f5cd5d1416746181b1
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
 
-PODFILE CHECKSUM: 0040edb9becfc1812d3616553566e23356232167
+PODFILE CHECKSUM: 4d935387befc8a05b40028950c469dde9ac72dd1
 
 COCOAPODS: 1.14.2

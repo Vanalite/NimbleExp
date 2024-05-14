@@ -31,6 +31,10 @@ class MenuView: UIView {
         return view
     }
 
+    func assignUsername(_ userName: String) {
+        usernameLabel.text = userName
+    }
+
     @IBAction func logoutDidTap(_ sender: Any) {
         delegate?.logoutDidTap(sender)
     }

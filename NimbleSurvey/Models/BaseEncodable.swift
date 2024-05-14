@@ -40,8 +40,9 @@ extension Encodable {
 
         do {
             let jsonData = try jsonEncoder.encode(self)
-
-            return try (JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]) ?? [:]
+            var json = try (JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]) ?? [:]
+            json.removeValue(forKey: "dummyId")
+            return json
         } catch {
             logger.error(error.localizedDescription)
         }

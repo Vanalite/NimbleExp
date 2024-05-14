@@ -35,6 +35,11 @@ class NetworkService: NSObject {
         return requestObject(endpoint: .fetchSurvey(request: request))
     }
 
+    func getUser() -> Single<UserEntity> {
+        let request = BaseCodable()
+        return requestObject(endpoint: .getUser(request: request))
+    }
+
     func request(
         endpoint: NetworkAPI,
         ignoreUnauthorized: Bool = false,

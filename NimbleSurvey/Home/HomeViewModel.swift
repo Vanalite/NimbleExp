@@ -18,10 +18,6 @@ class HomeViewModel {
     private let realm: Realm
     private let disposeBag = DisposeBag()
 
-//    var username: String {
-//        user.userName
-//    }
-
     init(user: LoginResponseEntity,
          netWorkService: NetworkService = NetworkService(),
          realm: Realm = RealmManager.shared.mainThreadRealm) {
@@ -32,6 +28,12 @@ class HomeViewModel {
 
     func fetchSurvey() -> Driver<SurveyResponseEntity> {
         return self.netWorkService.fetchSurvey(pageNumber: 1)
+            .asObservable()
+            .asDriverOnErrorJustComplete()
+    }
+
+    func fetchUser() -> Driver<UserEntity> {
+        return self.netWorkService.getUser()
             .asObservable()
             .asDriverOnErrorJustComplete()
     }

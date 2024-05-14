@@ -52,11 +52,10 @@ class HomeViewController: UIViewController {
             self?.navigateToSurveyEntrance()
         }).disposed(by: disposeBag)
 
-        viewModel = HomeViewModel()
-
-        viewModel.fetchSurvey().drive { [weak self] surveys in
-
-        }
+        viewModel.fetchSurvey().drive(onNext: { [weak self] surveys in
+            self?.reconfigureUI(surveys)
+        })
+        .disposed(by: disposeBag)
     }
 
     private func setCurrentTime() {
@@ -93,6 +92,10 @@ class HomeViewController: UIViewController {
 
     @objc private func slideMenuOut() {
         containerView.removeFromSuperview()
+    }
+
+    private func reconfigureUI(_ surveys: SurveyResponseEntity) {
+
     }
 }
 

@@ -45,7 +45,6 @@ class NetworkService: NSObject {
             .rx
             .request(endpoint, callbackQueue: DispatchQueue.global(qos: .utility))
             .filterSuccessfulStatusCodes()
-            .mapApiMoyaError()
             .retry(maxRetryAttempts)
     }
 

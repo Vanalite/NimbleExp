@@ -12,19 +12,27 @@ import RxSwift
 
 class HomeViewModel {
 
+    var user: LoginResponseEntity
     var surveyList: [SurveyDataEntity] = []
     private let netWorkService : NetworkService
     private let realm: Realm
     private let disposeBag = DisposeBag()
 
-    init(netWorkService: NetworkService = NetworkService(),
+//    var username: String {
+//        user.userName
+//    }
+
+    init(user: LoginResponseEntity,
+         netWorkService: NetworkService = NetworkService(),
          realm: Realm = RealmManager.shared.mainThreadRealm) {
+        self.user = user
         self.netWorkService = netWorkService
         self.realm = realm
     }
 
     func fetchSurvey() -> Driver<SurveyResponseEntity> {
         return self.netWorkService.fetchSurvey(pageNumber: 1)
-            .asDriver(onErrorJustReturn: SurveyResponseEntity())
+            .asObservable()
+            .asDriverOnErrorJustComplete()
     }
 }

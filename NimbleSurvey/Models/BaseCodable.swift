@@ -52,7 +52,8 @@ class BaseCodable: Object, BaseCodableProtocol {
         super.init()
     }
 
-    func encode(to encoder: Encoder) throws {
+    required init(from decoder: Decoder) throws {
+        super.init()
     }
 
     private func lowerProperty(property: String) -> BaseCodingKey? {

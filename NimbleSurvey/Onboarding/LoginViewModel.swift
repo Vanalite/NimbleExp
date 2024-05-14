@@ -54,16 +54,10 @@ final class LoginViewModel {
 
     func handleLogin() -> Driver<LoginResponseEntity> {
         return self.netWorkService.loginRequest(email.value, password: password.value)
+            .asObservable()
             .catch({ error in
-                print(error.localizedDescription)
                 return .just(LoginResponseEntity())
             })
-            .do { [weak self] user in
-                guard let self = self else { return }
-                try self.realm.write {
-                    self.realm.add(user)
-                }
-            }
-            .asDriver(onErrorJustReturn: LoginResponseEntity())
+            .asDriverOnErrorJustComplete()
     }
 }

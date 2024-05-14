@@ -40,7 +40,7 @@ class APIProvider {
         }
         let _ = stubClosure ?? defaultStubClosure
         // Inject plugin here
-        self.provider = MoyaProvider<NetworkAPI>()
+        self.provider = MoyaProvider<NetworkAPI>(plugins: plugins)
     }
 }
 
@@ -75,11 +75,23 @@ public final class NetworkLoggerPlugin: Moya.PluginType {
 
         if let request = request as? CustomDebugStringConvertible, cURL {
             output(separator, terminator, request.debugDescription)
-            print(request.debugDescription)
             return
+        }
+        if cURL {
+            _ = request.cURLDescription { description in
+                logger.info(description)
+            }
         }
 
         outputItems(logNetworkRequest(request.request as URLRequest?, shouldLogBody: api.isLogable))
+    }
+
+    public func didReceive(_ result: Result<Moya.Response, MoyaError>, target: Moya.TargetType) {
+        if case let .success(response) = result {
+            outputItems(logNetworkResponse(response.response, data: response.data, target: target))
+        } else {
+            outputItems(logNetworkResponse(nil, data: nil, target: target))
+        }
     }
 
     fileprivate func outputItems(_ items: [String]) {
@@ -88,6 +100,7 @@ public final class NetworkLoggerPlugin: Moya.PluginType {
         } else {
             output(separator, terminator, items)
         }
+        logger.verbose(items)
     }
 }
 
@@ -157,7 +170,6 @@ private extension NetworkLoggerPlugin {
             output += [stringData]
         }
         output += [terminator]
-        print(output)
         return output
     }
 }

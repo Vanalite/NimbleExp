@@ -17,8 +17,7 @@ class SurveyResponseEntity: BaseCodableResponseEntity {
         let values = try? decoder.container(keyedBy: CodingKeysSurveyResponseEntity.self)
 
         if let array = try? values?.decode([SurveyDataEntity].self, forKey: .data) {
-            data?.removeAll()
-            data?.append(contentsOf: array)
+            data = array
         }
 
         if let meta = try? values?.decodeIfPresent(SurveyMeta.self, forKey: .meta) {
@@ -83,14 +82,14 @@ class SurveyMeta: BaseCodableResponseEntity {
 }
 
 class SurveyAttribute: BaseCodableResponseEntity {
-    var title: String = "Scarlett Bangkok"
-    var descriptionString: String = "We'd love ot hear from you!"
+    var title: String = ""
+    var descriptionString: String = ""
     var isActive: Bool = true
-    var coverImageUrl: String = "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_"
-    var createdAt: String = "2017-01-23T07:48:12.991Z"
-    var activeAt: String = "2015-10-08T07:04:00.000Z"
+    var coverImageUrl: String = ""
+    var createdAt: String = ""
+    var activeAt: String = ""
     var inactiveAt: String = ""
-    var surveyType: String = "Restaurant"
+    var surveyType: String = ""
 
     private enum CodingKeysSurveyAttribute: String, CodingKey {
         case title

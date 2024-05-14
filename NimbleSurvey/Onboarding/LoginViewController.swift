@@ -80,9 +80,10 @@ class LoginViewController: UIViewController {
             .subscribe(onNext: { [unowned self] in
                 if self.viewModel.validation() {
                     self.viewModel.handleLogin()
-                        .drive({ response in
-                            self.navigateToHome()
-                        })
+                        .drive(onNext: { response in
+                            self.navigateToHome(user: response)
+                        }, onCompleted: nil)
+                        .disposed(by: disposeBag)
                 } else {
                     self.showAlert(msg: self.viewModel.errorMsg.value)
                 }
@@ -96,9 +97,11 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    private func navigateToHome() {
+    private func navigateToHome(user: LoginResponseEntity) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let homeViewModel = HomeViewModel(user: user)
+        homeViewController.viewModel = homeViewModel
         navigationController?.pushViewController(homeViewController, animated: true)
     }
 }

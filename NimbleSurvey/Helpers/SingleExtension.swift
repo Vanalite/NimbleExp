@@ -7,6 +7,7 @@
 
 import Moya
 import RxSwift
+import RxCocoa
 
 public extension Single where Trait == SingleTrait, Element == Response {
     func dataToJSON(data: Data) -> AnyObject? {
@@ -54,40 +55,48 @@ public extension Single where Trait == SingleTrait, Element == Response {
         }
     }
 
-    func mapApiError() -> Single<Element> {
-        flatMap { response -> Single<Element> in
-            let statusCode: Int
-            let responseObject: BaseCodableResponseEntity
-            do {
-                responseObject = try response.map(BaseCodableResponseEntity.self)
-                statusCode = responseObject.status.value ?? responseObject.code.value ?? response.statusCode
-            } catch {
-                statusCode = response.statusCode
-                return Single.error(CustomError(message: "Endpoint response data is corrupted. Status code \(statusCode)"))
-            }
-            if statusCode >= HTTPCode.minSuccess && statusCode < HTTPCode.maxSuccess {
-                return Single.just(response)
-            } else {
-                return Single.error(responseObject)
-            }
-        }
-    }
+//    func mapApiError() -> Single<Element> {
+//        flatMap { response -> Single<Element> in
+//            let statusCode: Int
+//            let responseObject: BaseCodableResponseEntity
+//            do {
+//                responseObject = try response.map(BaseCodableResponseEntity.self)
+//                statusCode = responseObject.status.value ?? responseObject.code.value ?? response.statusCode
+//            } catch {
+//                statusCode = response.statusCode
+//                return Single.error(CustomError(message: "Endpoint response data is corrupted. Status code \(statusCode)"))
+//            }
+//            if statusCode >= HTTPCode.minSuccess && statusCode < HTTPCode.maxSuccess {
+//                return Single.just(response)
+//            } else {
+//                return Single.error(responseObject)
+//            }
+//        }
+//    }
+//
+//    func mapApiMoyaError() -> Single<Element> {
+//        flatMap { response -> Single<Element> in
+//            let statusCode: Int
+//            do {
+//                let responseObject = try response.map(BaseCodableResponseEntity.self)
+//                statusCode = responseObject.status.value ?? responseObject.code.value ?? response.statusCode
+//            } catch {
+//                statusCode = response.statusCode
+//                return Single.error(CustomError(message: "Endpoint response data is corrupted. Status code \(statusCode)"))
+//            }
+//            if statusCode >= HTTPCode.minSuccess && statusCode < HTTPCode.maxSuccess {
+//                return Single.just(response)
+//            } else {
+//                throw MoyaError.statusCode(response)
+//            }
+//        }
+//    }
+}
 
-    func mapApiMoyaError() -> Single<Element> {
-        flatMap { response -> Single<Element> in
-            let statusCode: Int
-            do {
-                let responseObject = try response.map(BaseCodableResponseEntity.self)
-                statusCode = responseObject.status.value ?? responseObject.code.value ?? response.statusCode
-            } catch {
-                statusCode = response.statusCode
-                return Single.error(CustomError(message: "Endpoint response data is corrupted. Status code \(statusCode)"))
-            }
-            if statusCode >= HTTPCode.minSuccess && statusCode < HTTPCode.maxSuccess {
-                return Single.just(response)
-            } else {
-                throw MoyaError.statusCode(response)
-            }
+extension ObservableType {
+    func asDriverOnErrorJustComplete() -> Driver<Element> {
+        asDriver { _ in
+            Driver.empty()
         }
     }
 }

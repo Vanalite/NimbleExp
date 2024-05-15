@@ -10,7 +10,6 @@
 		08D6C5558FD6A34C6D00C9F9 /* Pods_NimbleSurvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2914BB2C86E469597C9D2CF0 /* Pods_NimbleSurvey.framework */; };
 		2E1B109D8780D4CCDBAFE748 /* Pods_NimbleSurveyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BC5786DFC815D62896A808 /* Pods_NimbleSurveyTests.framework */; };
 		6576E2AB2BEE049700FB1E44 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2AA2BEE049700FB1E44 /* LoginViewModel.swift */; };
-		6576E2AE2BEE053900FB1E44 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */; };
 		6576E2B22BEE055E00FB1E44 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B02BEE055E00FB1E44 /* RealmManager.swift */; };
 		6576E2BA2BEE057000FB1E44 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B52BEE056F00FB1E44 /* APIProvider.swift */; };
 		6576E2BB2BEE057000FB1E44 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2B62BEE056F00FB1E44 /* NetworkService.swift */; };
@@ -43,6 +42,7 @@
 		658A56472BF490A2003BCC44 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A56462BF490A2003BCC44 /* UIViewExtension.swift */; };
 		658A56492BF4A993003BCC44 /* Rx+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A56482BF4A993003BCC44 /* Rx+ActivityIndicator.swift */; };
 		658A564B2BF4ABDE003BCC44 /* Rx+SVProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A564A2BF4ABDE003BCC44 /* Rx+SVProgressHUD.swift */; };
+		658A564D2BF4B6E8003BCC44 /* SurveyEntranceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A564C2BF4B6E8003BCC44 /* SurveyEntranceViewModel.swift */; };
 		65B8BCC02BF31F0C00CF7313 /* SurveyEntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BCBF2BF31F0C00CF7313 /* SurveyEntranceViewController.swift */; };
 		65B8BCC22BF3219000CF7313 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BCC12BF3219000CF7313 /* QuestionViewController.swift */; };
 		65B8BCC42BF321E700CF7313 /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BCC32BF321E700CF7313 /* ThankViewController.swift */; };
@@ -79,7 +79,6 @@
 		2914BB2C86E469597C9D2CF0 /* Pods_NimbleSurvey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleSurvey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9A9E2940B806E28EF9A225 /* Pods-NimbleSurvey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleSurvey.release.xcconfig"; path = "Target Support Files/Pods-NimbleSurvey/Pods-NimbleSurvey.release.xcconfig"; sourceTree = "<group>"; };
 		6576E2AA2BEE049700FB1E44 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		6576E2B02BEE055E00FB1E44 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		6576E2B52BEE056F00FB1E44 /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		6576E2B62BEE056F00FB1E44 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		658A56462BF490A2003BCC44 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		658A56482BF4A993003BCC44 /* Rx+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		658A564A2BF4ABDE003BCC44 /* Rx+SVProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+SVProgressHUD.swift"; sourceTree = "<group>"; };
+		658A564C2BF4B6E8003BCC44 /* SurveyEntranceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyEntranceViewModel.swift; sourceTree = "<group>"; };
 		65B8BCBF2BF31F0C00CF7313 /* SurveyEntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyEntranceViewController.swift; sourceTree = "<group>"; };
 		65B8BCC12BF3219000CF7313 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		65B8BCC32BF321E700CF7313 /* ThankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankViewController.swift; sourceTree = "<group>"; };
@@ -173,9 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				6576E2B92BEE057000FB1E44 /* SingleExtension.swift */,
-				6576E2D62BF07BE200FB1E44 /* Rx+String.swift */,
 				6576E2D22BEE1E8F00FB1E44 /* ImageExtension.swift */,
-				6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */,
 				6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */,
 				6576E2D42BEE30E600FB1E44 /* UITextFieldExtension.swift */,
 				658A56462BF490A2003BCC44 /* UIViewExtension.swift */,
@@ -219,6 +217,7 @@
 				6576E2B02BEE055E00FB1E44 /* RealmManager.swift */,
 				658A56482BF4A993003BCC44 /* Rx+ActivityIndicator.swift */,
 				658A564A2BF4ABDE003BCC44 /* Rx+SVProgressHUD.swift */,
+				6576E2D62BF07BE200FB1E44 /* Rx+String.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -238,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				65B8BCBF2BF31F0C00CF7313 /* SurveyEntranceViewController.swift */,
+				658A564C2BF4B6E8003BCC44 /* SurveyEntranceViewModel.swift */,
 				65B8BCC12BF3219000CF7313 /* QuestionViewController.swift */,
 				658A563E2BF47BA1003BCC44 /* QuestionViewModel.swift */,
 				65B8BCC32BF321E700CF7313 /* ThankViewController.swift */,
@@ -572,13 +572,13 @@
 				6576E2C92BEE0A3400FB1E44 /* LoginResponseEntity.swift in Sources */,
 				65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */,
 				658A56412BF47C32003BCC44 /* SubmitResponsesRequestEntity.swift in Sources */,
-				6576E2AE2BEE053900FB1E44 /* ViewModelType.swift in Sources */,
 				6576E2D52BEE30E600FB1E44 /* UITextFieldExtension.swift in Sources */,
 				6576E2DC2BF1D73D00FB1E44 /* HomeViewModel.swift in Sources */,
 				6576E2C72BEE09C900FB1E44 /* LoginRequestEntity.swift in Sources */,
 				6576E2E62BF2179D00FB1E44 /* MenuView.swift in Sources */,
 				65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */,
 				6576E2B22BEE055E00FB1E44 /* RealmManager.swift in Sources */,
+				658A564D2BF4B6E8003BCC44 /* SurveyEntranceViewModel.swift in Sources */,
 				6576E2C42BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift in Sources */,
 				658A56392BF37D25003BCC44 /* RequestPlugin.swift in Sources */,
 				6576E2DE2BF1EBCD00FB1E44 /* SurveyRequestEntity.swift in Sources */,

@@ -37,7 +37,7 @@ class SurveyResponseEntity: BaseCodableResponseEntity {
 }
 
 class SurveyDataEntity: BaseCodableResponseEntity {
-    var id: String = ""
+    var surveyId: String = ""
     var type: String = "survey_simple"
     var attributes: SurveyAttribute?
 
@@ -45,8 +45,8 @@ class SurveyDataEntity: BaseCodableResponseEntity {
         try super.init(from: decoder)
 
         let values = try? decoder.container(keyedBy: CodingKeysSurveyDataEntity.self)
-        if let id = try? values?.decodeIfPresent(String.self, forKey: .id) {
-            self.id = id
+        if let surveyId = try? values?.decodeIfPresent(String.self, forKey: .surveyId) {
+            self.surveyId = surveyId
         }
         if let type = try? values?.decodeIfPresent(String.self, forKey: .type) {
             self.type = type
@@ -61,7 +61,7 @@ class SurveyDataEntity: BaseCodableResponseEntity {
     }
     
     private enum CodingKeysSurveyDataEntity: String, CodingKey {
-        case id
+        case surveyId = "id"
         case type
         case attributes
     }

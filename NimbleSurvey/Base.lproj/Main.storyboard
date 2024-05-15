@@ -330,9 +330,6 @@
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="backButtonDidTap:" destination="83Q-nY-1CW" eventType="touchUpInside" id="geI-v6-7B3"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -381,13 +378,10 @@
                                         <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="startSurveyButtonDidTap:" destination="83Q-nY-1CW" eventType="touchUpInside" id="z6w-Av-3sr"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5NO-px-yMW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oHZ-OT-wfh" firstAttribute="top" secondItem="5NO-px-yMW" secondAttribute="top" constant="64" id="1Fd-SV-yMm"/>
                             <constraint firstItem="EzD-mP-IGV" firstAttribute="leading" secondItem="5NO-px-yMW" secondAttribute="leading" id="6af-TZ-ZUx"/>
@@ -405,8 +399,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="pUf-Mc-Qtu" id="9cD-Bg-K9e"/>
                         <outlet property="bgImageView" destination="qVP-3x-bNE" id="h2r-Df-KLV"/>
                         <outlet property="descriptionLabel" destination="4x2-ol-gQF" id="adV-rD-71e"/>
+                        <outlet property="startButton" destination="LCt-NX-was" id="VpF-zc-mhw"/>
                         <outlet property="titleLabel" destination="xPl-eT-jhs" id="TkS-gL-mpc"/>
                     </connections>
                 </viewController>
@@ -465,9 +461,9 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ml-70-PxL" userLabel="Answer Wrapper View">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="7ml-70-PxL" userLabel="Answer Wrapper View">
                                 <rect key="frame" x="20" y="301" width="353" height="421"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpt-fU-6A4" userLabel="NextButton">
                                 <rect key="frame" x="317" y="742" width="56" height="56"/>

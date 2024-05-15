@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 protocol RatingViewDelegate: AnyObject {
     func ratingDidSelect(_ sender: Any)
@@ -39,6 +40,23 @@ class RatingView: UIView {
                 button.titleLabel?.text = SurveyDetailEntity.DisplayType.face(order: i).displayValue
             }
             ratingStackView.addArrangedSubview(button)
+            button.snp.makeConstraints { make in
+                make.height.width.equalTo(36)
+            }
+            button.addTarget(self, action: #selector(ratingDidTap(_:)), for: .touchUpInside)
+            button.tag = i
+            button.alpha = 0.5
+        }
+        ratingStackView.spacing = 12
+    }
+
+    @objc
+    func ratingDidTap(_ sender: Any) {
+        guard let button = sender as? UIButton else { return }
+        for i in 0...button.tag {
+            if let highlightingButton = ratingStackView.viewWithTag(i) {
+                highlightingButton.alpha = 1
+            }
         }
     }
 }

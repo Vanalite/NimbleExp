@@ -12,16 +12,16 @@ import RxSwift
 
 class QuestionViewModel {
     var surveyDetailList: [SurveyDetailEntity] = []
-    var surveyData: SurveyDataEntity
+    var surveyDetailResponse: SurveyDetailResponseEntity
     private let netWorkService : NetworkService
     private let disposeBag = DisposeBag()
 
-    init(surveyData: SurveyDataEntity,
+    init(surveyDetailResponse: SurveyDetailResponseEntity,
          netWorkService: NetworkService = NetworkService()) {
-        self.surveyData = surveyData
+        self.surveyDetailResponse = surveyDetailResponse
+        self.surveyDetailList = self.surveyDetailResponse.questions
         self.netWorkService = netWorkService
     }
-
 
     func fetchUser() -> Driver<UserEntity> {
         return self.netWorkService.getUser()

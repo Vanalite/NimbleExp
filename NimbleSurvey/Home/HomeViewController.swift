@@ -101,7 +101,10 @@ class HomeViewController: UIViewController {
     private func navigateToSurveyEntrance() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let surveyEntranceViewController = storyBoard.instantiateViewController(withIdentifier: "SurveyEntranceViewController") as! SurveyEntranceViewController
-        surveyEntranceViewController.surveyData = viewModel.surveyList.first
+        if let startingSurvey = viewModel.surveyList.first {
+            let viewModel = SurveyEntranceViewModel(surveyData: startingSurvey)
+            surveyEntranceViewController.viewModel = viewModel
+        }
         navigationController?.pushViewController(surveyEntranceViewController, animated: true)
     }
 

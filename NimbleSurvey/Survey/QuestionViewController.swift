@@ -28,11 +28,19 @@ class QuestionViewController: UIViewController {
         bindViewModel()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ratingView.layoutSubviews()
+    }
+
     private func configureUI() {
         answerWrapperView.addSubview(ratingView)
         ratingView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(60)
+            make.trailing.equalToSuperview().offset(-60)
         }
+        ratingView.configure(ratingStyle: .star)
     }
 
     private func bindViewModel() {

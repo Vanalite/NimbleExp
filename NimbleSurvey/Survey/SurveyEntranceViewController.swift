@@ -70,6 +70,7 @@ class SurveyEntranceViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let questionViewController = storyBoard.instantiateViewController(withIdentifier: "QuestionViewController") as! QuestionViewController
         let viewModel = QuestionViewModel(surveyDetailResponse: surveyDetailResponse)
+        viewModel.currentQuestionIndex = 0
         questionViewController.viewModel = viewModel
         navigationController?.pushViewController(questionViewController, animated: true)
     }

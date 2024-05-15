@@ -89,13 +89,22 @@ class HomeViewController: UIViewController {
             .compactMap { ($0 as? UIWindowScene)?.keyWindow }
             .last
         containerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        containerView.alpha = 0
         containerView.frame = self.view.frame
-
-        window?.addSubview(containerView)
-
-        let screenSize = UIScreen.main.bounds.size
-        menuView.frame = CGRect(x: screenSize.width - slideInViewWidth, y: 0, width: slideInViewWidth, height: screenSize.height)
         containerView.addSubview(menuView)
+        let screenSize = UIScreen.main.bounds.size
+        window?.addSubview(containerView)
+        menuView.frame = CGRect(x: screenSize.width, y: 0, width: slideInViewWidth, height: screenSize.height)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseInOut,
+                       animations: { [weak self] in
+            guard let self = self else { return }
+            self.containerView.alpha = 1
+            self.menuView.frame = CGRect(x: screenSize.width - self.slideInViewWidth, y: 0, width: self.slideInViewWidth, height: screenSize.height)
+        })
     }
 
     private func navigateToSurveyEntrance() {
@@ -109,7 +118,16 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func slideMenuOut() {
-        containerView.removeFromSuperview()
+        UIView.animate(withDuration: 0.5,
+                       delay: 0, 
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseInOut, 
+                       animations: { [weak self] in
+            self?.containerView.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.containerView.removeFromSuperview()
+        })
     }
 
     private func reconfigureUI(_ surveys: SurveyResponseEntity) {

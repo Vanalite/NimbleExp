@@ -448,9 +448,19 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-We-oXd" userLabel="CountWraperView">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="20"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-Dl-pEC">
+                                                <rect key="frame" x="0.0" y="1" width="40" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="4TH-gW-Fzj"/>
+                                            <constraint firstItem="CRX-Dl-pEC" firstAttribute="leading" secondItem="YfO-We-oXd" secondAttribute="leading" id="cra-ZL-zFL"/>
+                                            <constraint firstItem="CRX-Dl-pEC" firstAttribute="centerY" secondItem="YfO-We-oXd" secondAttribute="centerY" id="zKa-ns-z0v"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How fulfilled did you feel during this WFH period?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxN-o5-exv">
@@ -502,6 +512,7 @@
                         <outlet property="closeButton" destination="iTe-jn-0nJ" id="zv1-VV-OZA"/>
                         <outlet property="nextButton" destination="Hpt-fU-6A4" id="4PI-RI-5ut"/>
                         <outlet property="questionLabel" destination="AxN-o5-exv" id="rbT-31-9Cj"/>
+                        <outlet property="questionsCountLabel" destination="CRX-Dl-pEC" id="t5h-qP-Byv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjG-4H-tot" userLabel="First Responder" sceneMemberID="firstResponder"/>

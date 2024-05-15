@@ -17,7 +17,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var answerWrapperView: UIView!
-
+    @IBOutlet weak var questionsCountLabel: UILabel!
+    
     let disposeBag = DisposeBag()
     var viewModel: QuestionViewModel!
     let ratingView = RatingView.instantiate(message: "")
@@ -41,6 +42,9 @@ class QuestionViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-60)
         }
         ratingView.configure(ratingStyle: .star)
+        questionsCountLabel.text = viewModel.questionCountText()
+        let currentQuestion = viewModel.getCurrentQuestion()
+        questionLabel.text = currentQuestion.text
     }
 
     private func bindViewModel() {
@@ -58,7 +62,11 @@ class QuestionViewController: UIViewController {
 
         nextButton.rx.tap.asDriver().drive(onNext: { [weak self] in
             guard let self = self else { return }
-            self.navigateToThank()
+            if viewModel.isLastQuestion() {
+                self.navigateToThank()
+            } else {
+                self.moveToNextQuestion()
+            }
         })
         .disposed(by: disposeBag)
     }
@@ -67,5 +75,15 @@ class QuestionViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let thankViewController = storyBoard.instantiateViewController(withIdentifier: "ThankViewController")
         navigationController?.pushViewController(thankViewController, animated: true)
+    }
+
+    private func moveToNextQuestion() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let questionViewController = storyBoard.instantiateViewController(withIdentifier: "QuestionViewController") as! QuestionViewController
+        let nextViewModel = QuestionViewModel(surveyDetailResponse: viewModel.surveyDetailResponse)
+        nextViewModel.currentQuestionIndex = viewModel.currentQuestionIndex + 1
+        questionViewController.viewModel = nextViewModel
+        navigationController?.pushViewController(questionViewController, animated: true)
+
     }
 }

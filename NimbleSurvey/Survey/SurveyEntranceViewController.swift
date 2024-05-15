@@ -20,6 +20,12 @@ class SurveyEntranceViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    func populateData(title: String, description: String, bgImage: UIImage?) {
+        titleLabel.text = title
+        descriptionLabel.text = description
+        bgImageView.image = bgImage // Resever for loading image on low network
+    }
+
     @IBAction func backButtonDidTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

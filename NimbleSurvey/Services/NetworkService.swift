@@ -28,6 +28,11 @@ class NetworkService: NSObject {
         return requestObject(endpoint: .login(request: request), ignoreUnauthorized: true)
     }
 
+    func getUser() -> Single<UserEntity> {
+        let request = BaseCodable()
+        return requestObject(endpoint: .getUser(request: request))
+    }
+
     func fetchSurvey(pageNumber: Int = 1, pageSize: Int = 5) -> Single<SurveyResponseEntity> {
         let request = SurveyRequestEntity()
         request.pageSize = pageSize
@@ -35,9 +40,9 @@ class NetworkService: NSObject {
         return requestObject(endpoint: .fetchSurvey(request: request))
     }
 
-    func getUser() -> Single<UserEntity> {
+    func getSurveyDetail(surveyId: String) -> Single<SurveyDetailResponseEntity> {
         let request = BaseCodable()
-        return requestObject(endpoint: .getUser(request: request))
+        return requestObject(endpoint: .getSurveyDetail(request: request, surveyId: surveyId))
     }
 
     func request(

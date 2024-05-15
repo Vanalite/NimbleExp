@@ -74,6 +74,7 @@ class LoginViewController: UIViewController {
 
         loginButton
             .rx.tap
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .do(onNext :{ [unowned self] in
                 self.view.endEditing(true)
             })

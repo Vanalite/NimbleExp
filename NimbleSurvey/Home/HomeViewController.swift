@@ -65,7 +65,9 @@ class HomeViewController: UIViewController {
             self.slideMenuIn()
         }).disposed(by: disposeBag)
 
-        startSurveyButton.rx.tap.subscribe(onNext: { [weak self] _ in
+        startSurveyButton.rx.tap
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
             self?.navigateToSurveyEntrance()
         }).disposed(by: disposeBag)
     }

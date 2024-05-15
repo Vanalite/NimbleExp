@@ -60,16 +60,19 @@ class HomeViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        avatarButton.rx.tap.subscribe(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            self.slideMenuIn()
-        }).disposed(by: disposeBag)
+        avatarButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.slideMenuIn()
+            })
+            .disposed(by: disposeBag)
 
         startSurveyButton.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
-            self?.navigateToSurveyEntrance()
-        }).disposed(by: disposeBag)
+                self?.navigateToSurveyEntrance()
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setCurrentTime() {

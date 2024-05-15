@@ -36,14 +36,28 @@ class QuestionViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        closeButton.rx.tap.asDriver().drive {
-            guard let navigationController = self.navigationController else { return }
+        closeButton.rx.tap.asDriver().drive(onNext:  { [weak self] in
+            guard let self = self,
+                  let navigationController = self.navigationController else { return }
             let homeViewController = navigationController.viewControllers.first {
                 $0.isKind(of: HomeViewController.self)
             }
             if let homeViewController = homeViewController {
                 navigationController.popToViewController(homeViewController, animated: true)
             }
-        }.disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
+
+        nextButton.rx.tap.asDriver().drive(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.navigateToThank()
+        })
+        .disposed(by: disposeBag)
+    }
+
+    private func navigateToThank() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let thankViewController = storyBoard.instantiateViewController(withIdentifier: "ThankViewController")
+        navigationController?.pushViewController(thankViewController, animated: true)
     }
 }

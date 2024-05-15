@@ -51,7 +51,6 @@ class SurveyDetailEntity: BaseCodable {
 
     var displayType: DisplayType {
         return DisplayType.mapValue(rawValue: _displayType)
-//        return DisplayType(rawValue: _displayType) ?? .star
     }
 
     required init() {

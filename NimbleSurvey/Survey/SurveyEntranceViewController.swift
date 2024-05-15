@@ -33,8 +33,6 @@ class SurveyEntranceViewController: UIViewController {
     
     @IBAction func startSurveyButtonDidTap(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let thankViewController = storyBoard.instantiateViewController(withIdentifier: "ThankViewController")
-//        navigationController?.pushViewController(thankViewController, animated: true)
         let questionViewController = storyBoard.instantiateViewController(withIdentifier: "QuestionViewController") as! QuestionViewController
         if let surveyData = surveyData {
             let viewModel = QuestionViewModel(surveyData: surveyData)

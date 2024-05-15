@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -89,6 +90,9 @@ class LoginViewController: UIViewController {
                     self.showAlert(msg: self.viewModel.errorMsg.value)
                 }
             })
+            .disposed(by: disposeBag)
+
+        viewModel.activityIndicator.drive(SVProgressHUD.rx.isAnimating)
             .disposed(by: disposeBag)
     }
     

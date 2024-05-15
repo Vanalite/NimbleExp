@@ -44,6 +44,9 @@ PODS:
   - RxTest (6.7.1):
     - RxSwift (= 6.7.1)
   - SnapKit (5.7.1)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
   - SwiftyBeaver (2.1.0)
   - SwiftyJSON (5.0.2)
 
@@ -58,6 +61,7 @@ DEPENDENCIES:
   - RxRealm
   - RxTest
   - SnapKit
+  - SVProgressHUD
   - SwiftyBeaver
   - SwiftyJSON
 
@@ -83,6 +87,7 @@ SPEC REPOS:
     - RxSwift
     - RxTest
     - SnapKit
+    - SVProgressHUD
     - SwiftyBeaver
     - SwiftyJSON
 
@@ -107,9 +112,10 @@ SPEC CHECKSUMS:
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
   RxTest: eec2bff159d799cdc02da2b40ef47e43dc17e688
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   SwiftyBeaver: 9e7c5df6cf4e745e4277b4f5cd5d1416746181b1
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
 
-PODFILE CHECKSUM: 4d935387befc8a05b40028950c469dde9ac72dd1
+PODFILE CHECKSUM: c63c18e026e7ae8dad9436fde372b4712abffd7f
 
 COCOAPODS: 1.14.2

@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyBeaver
+import SVProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let log = SwiftyBeaver.self
         log.addDestination(ConsoleDestination())
+        SVProgressHUD.setDefaultMaskType(.clear)
         return true
     }
 

@@ -15,6 +15,7 @@ final class LoginViewModel {
     var email = BehaviorRelay<String>(value: "")
     var password = BehaviorRelay<String>(value: "")
     var errorMsg = BehaviorRelay<String>(value: "")
+    let activityIndicator = ActivityIndicator()
     private let netWorkService : NetworkService
     private let realm: Realm
 
@@ -54,6 +55,7 @@ final class LoginViewModel {
 
     func handleLogin() -> Driver<LoginResponseEntity> {
         return self.netWorkService.loginRequest(email.value, password: password.value)
+            .trackActivity(activityIndicator)
             .asObservable()
             .catch({ error in
                 return .just(LoginResponseEntity())

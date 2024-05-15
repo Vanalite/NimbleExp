@@ -143,6 +143,7 @@ class HomeViewController: UIViewController {
                 .cacheOriginalImage
             ]
         )
+        pageControl.numberOfPages = surveys.data?.count ?? 0
     }
 
     private func assignUsername(user: UserEntity) {

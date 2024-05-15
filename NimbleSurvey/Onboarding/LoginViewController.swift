@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
 
     private func configureUI() {
         title = "Nimble"
-        emailTextField.text = "dev@example.com"
+        emailTextField.text = "nghia@email.com"
         passwordTextField.text = "password"
         bgImageView.image = bgImageView.image?.blurEffect(20)
         emailTextField.layer.cornerRadius = 12

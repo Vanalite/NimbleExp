@@ -14,9 +14,12 @@ class HomeViewModel {
 
     var user: LoginResponseEntity
     var surveyList: [SurveyDataEntity] = []
+
     private let netWorkService : NetworkService
     private let realm: Realm
     private let disposeBag = DisposeBag()
+
+    var numberOfSurveys = BehaviorRelay<Int>(value: 3)
 
     init(user: LoginResponseEntity,
          netWorkService: NetworkService = NetworkService(),

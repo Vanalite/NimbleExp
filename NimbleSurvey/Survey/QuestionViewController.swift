@@ -9,14 +9,18 @@ import Foundation
 import UIKit
 import RxCocoa
 import RxSwift
+import SnapKit
 
 class QuestionViewController: UIViewController {
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var answerWrapperView: UIView!
 
     let disposeBag = DisposeBag()
+    var viewModel: QuestionViewModel!
+    let ratingView = RatingView.instantiate(message: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +29,10 @@ class QuestionViewController: UIViewController {
     }
 
     private func configureUI() {
-
+        answerWrapperView.addSubview(ratingView)
+        ratingView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
     }
 
     private func bindViewModel() {

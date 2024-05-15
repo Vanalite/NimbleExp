@@ -15,7 +15,8 @@ class SurveyEntranceViewController: UIViewController {
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+    var surveyData: SurveyDataEntity?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,7 +33,13 @@ class SurveyEntranceViewController: UIViewController {
     
     @IBAction func startSurveyButtonDidTap(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let thankViewController = storyBoard.instantiateViewController(withIdentifier: "ThankViewController")
-        navigationController?.pushViewController(thankViewController, animated: true)
+//        let thankViewController = storyBoard.instantiateViewController(withIdentifier: "ThankViewController")
+//        navigationController?.pushViewController(thankViewController, animated: true)
+        let questionViewController = storyBoard.instantiateViewController(withIdentifier: "QuestionViewController") as! QuestionViewController
+        if let surveyData = surveyData {
+            let viewModel = QuestionViewModel(surveyData: surveyData)
+            questionViewController.viewModel = viewModel
+        }
+        navigationController?.pushViewController(questionViewController, animated: true)
     }
 }

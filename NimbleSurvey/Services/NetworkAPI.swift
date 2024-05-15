@@ -14,11 +14,13 @@ enum NetworkAPI: TargetType {
     static let kFetchSurvey = "/surveys"
     static let kUser = "/me"
     static let kGetSurveyDetail = "/surveys/%@"
+    static let kSubmitResponses = "/responses"
 
     case login(request: LoginRequestEntity)
     case getUser(request: BaseCodable)
     case fetchSurvey(request: SurveyRequestEntity)
     case getSurveyDetail(request: BaseCodable, surveyId: String)
+    case submitResponses(request: SubmitResponsesRequestEntity)
 
     var sampleData: Data {
         return Data()
@@ -38,7 +40,7 @@ enum NetworkAPI: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .login, .submitResponses:
             return .post
         case .fetchSurvey, .getUser, .getSurveyDetail:
             return .get
@@ -55,6 +57,8 @@ enum NetworkAPI: TargetType {
             return NetworkAPI.kFetchSurvey
         case .getSurveyDetail(let request, let surveyId):
             return String(format: NetworkAPI.kGetSurveyDetail, surveyId)
+        case .submitResponses(let request):
+            return NetworkAPI.kSubmitResponses
         }
     }
 
@@ -72,6 +76,8 @@ enum NetworkAPI: TargetType {
             return .requestParameters(parameters: request.toJSON(), encoding: URLEncoding.queryString)
         case .getSurveyDetail:
             return .requestPlain
+        case .submitResponses(let request):
+            return .requestParameters(parameters: request.toJSON(), encoding: JSONEncoding.default)
         }
     }
 }

@@ -36,6 +36,11 @@
 		6576E2E62BF2179D00FB1E44 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576E2E52BF2179D00FB1E44 /* MenuView.swift */; };
 		658A56392BF37D25003BCC44 /* RequestPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A56382BF37D25003BCC44 /* RequestPlugin.swift */; };
 		658A563B2BF3B6DA003BCC44 /* SurveyDetailResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A563A2BF3B6DA003BCC44 /* SurveyDetailResponseEntity.swift */; };
+		658A563F2BF47BA1003BCC44 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A563E2BF47BA1003BCC44 /* QuestionViewModel.swift */; };
+		658A56412BF47C32003BCC44 /* SubmitResponsesRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A56402BF47C32003BCC44 /* SubmitResponsesRequestEntity.swift */; };
+		658A56432BF4806F003BCC44 /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658A56422BF4806F003BCC44 /* RatingView.xib */; };
+		658A56452BF48085003BCC44 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A56442BF48085003BCC44 /* RatingView.swift */; };
+		658A56472BF490A2003BCC44 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A56462BF490A2003BCC44 /* UIViewExtension.swift */; };
 		65B8BCC02BF31F0C00CF7313 /* SurveyEntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BCBF2BF31F0C00CF7313 /* SurveyEntranceViewController.swift */; };
 		65B8BCC22BF3219000CF7313 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BCC12BF3219000CF7313 /* QuestionViewController.swift */; };
 		65B8BCC42BF321E700CF7313 /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BCC32BF321E700CF7313 /* ThankViewController.swift */; };
@@ -98,6 +103,11 @@
 		6576E2E52BF2179D00FB1E44 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		658A56382BF37D25003BCC44 /* RequestPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPlugin.swift; sourceTree = "<group>"; };
 		658A563A2BF3B6DA003BCC44 /* SurveyDetailResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailResponseEntity.swift; sourceTree = "<group>"; };
+		658A563E2BF47BA1003BCC44 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		658A56402BF47C32003BCC44 /* SubmitResponsesRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitResponsesRequestEntity.swift; sourceTree = "<group>"; };
+		658A56422BF4806F003BCC44 /* RatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
+		658A56442BF48085003BCC44 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		658A56462BF490A2003BCC44 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		65B8BCBF2BF31F0C00CF7313 /* SurveyEntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyEntranceViewController.swift; sourceTree = "<group>"; };
 		65B8BCC12BF3219000CF7313 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		65B8BCC32BF321E700CF7313 /* ThankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankViewController.swift; sourceTree = "<group>"; };
@@ -158,9 +168,13 @@
 		6576E2AC2BEE052800FB1E44 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6576E2B92BEE057000FB1E44 /* SingleExtension.swift */,
+				6576E2D62BF07BE200FB1E44 /* Rx+String.swift */,
+				6576E2D22BEE1E8F00FB1E44 /* ImageExtension.swift */,
 				6576E2AD2BEE053900FB1E44 /* ViewModelType.swift */,
 				6576E2CC2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift */,
 				6576E2D42BEE30E600FB1E44 /* UITextFieldExtension.swift */,
+				658A56462BF490A2003BCC44 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -172,7 +186,6 @@
 				6576E2C02BEE06A000FB1E44 /* BaseCodableAPIInfoEntity.swift */,
 				6576E2BE2BEE06A000FB1E44 /* BaseCodableResponseEntity.swift */,
 				6576E2BF2BEE06A000FB1E44 /* BaseEncodable.swift */,
-				6576E2B02BEE055E00FB1E44 /* RealmManager.swift */,
 				6576E2CE2BEE0D7500FB1E44 /* UserEntity.swift */,
 			);
 			path = Models;
@@ -190,6 +203,7 @@
 				6576E2DD2BF1EBCD00FB1E44 /* SurveyRequestEntity.swift */,
 				6576E2DF2BF1EBE300FB1E44 /* SurveyResponseEntity.swift */,
 				658A563A2BF3B6DA003BCC44 /* SurveyDetailResponseEntity.swift */,
+				658A56402BF47C32003BCC44 /* SubmitResponsesRequestEntity.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,9 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				6576E2B82BEE057000FB1E44 /* Constants.swift */,
-				6576E2B92BEE057000FB1E44 /* SingleExtension.swift */,
-				6576E2D62BF07BE200FB1E44 /* Rx+String.swift */,
-				6576E2D22BEE1E8F00FB1E44 /* ImageExtension.swift */,
+				6576E2B02BEE055E00FB1E44 /* RealmManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -221,7 +233,10 @@
 			children = (
 				65B8BCBF2BF31F0C00CF7313 /* SurveyEntranceViewController.swift */,
 				65B8BCC12BF3219000CF7313 /* QuestionViewController.swift */,
+				658A563E2BF47BA1003BCC44 /* QuestionViewModel.swift */,
 				65B8BCC32BF321E700CF7313 /* ThankViewController.swift */,
+				658A56422BF4806F003BCC44 /* RatingView.xib */,
+				658A56442BF48085003BCC44 /* RatingView.swift */,
 			);
 			path = Survey;
 			sourceTree = "<group>";
@@ -414,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FDF64E2BEDEEE600877180 /* LaunchScreen.storyboard in Resources */,
+				658A56432BF4806F003BCC44 /* RatingView.xib in Resources */,
 				6576E2E42BF2177000FB1E44 /* MenuView.xib in Resources */,
 				65FDF64B2BEDEEE600877180 /* Assets.xcassets in Resources */,
 				65FDF6492BEDEEE400877180 /* Main.storyboard in Resources */,
@@ -528,12 +544,15 @@
 				6576E2BA2BEE057000FB1E44 /* APIProvider.swift in Sources */,
 				6576E2CF2BEE0D7500FB1E44 /* UserEntity.swift in Sources */,
 				65B8BCC22BF3219000CF7313 /* QuestionViewController.swift in Sources */,
+				658A56472BF490A2003BCC44 /* UIViewExtension.swift in Sources */,
 				6576E2D32BEE1E8F00FB1E44 /* ImageExtension.swift in Sources */,
 				65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */,
 				6576E2DA2BF1D73300FB1E44 /* HomeViewController.swift in Sources */,
 				6576E2BD2BEE057000FB1E44 /* SingleExtension.swift in Sources */,
+				658A563F2BF47BA1003BCC44 /* QuestionViewModel.swift in Sources */,
 				6576E2CD2BEE0C6A00FB1E44 /* ThreadSafeDictionary.swift in Sources */,
 				6576E2BB2BEE057000FB1E44 /* NetworkService.swift in Sources */,
+				658A56452BF48085003BCC44 /* RatingView.swift in Sources */,
 				6576E2CB2BEE0B5F00FB1E44 /* NetworkAPI.swift in Sources */,
 				65B8BCC42BF321E700CF7313 /* ThankViewController.swift in Sources */,
 				6576E2BC2BEE057000FB1E44 /* Constants.swift in Sources */,
@@ -544,6 +563,7 @@
 				6576E2E02BF1EBE300FB1E44 /* SurveyResponseEntity.swift in Sources */,
 				6576E2C92BEE0A3400FB1E44 /* LoginResponseEntity.swift in Sources */,
 				65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */,
+				658A56412BF47C32003BCC44 /* SubmitResponsesRequestEntity.swift in Sources */,
 				6576E2AE2BEE053900FB1E44 /* ViewModelType.swift in Sources */,
 				6576E2D52BEE30E600FB1E44 /* UITextFieldExtension.swift in Sources */,
 				6576E2DC2BF1D73D00FB1E44 /* HomeViewModel.swift in Sources */,

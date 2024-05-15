@@ -9,7 +9,7 @@ import Foundation
 
 class SurveyDetailResponseEntity: BaseCodableResponseEntity {
 
-    var detail: SurveyDetailEntity?
+    var surveyId: String = ""
     var questions: [SurveyDetailEntity] = []
 
     required init() {
@@ -21,6 +21,12 @@ class SurveyDetailResponseEntity: BaseCodableResponseEntity {
 
         let values = try? decoder.container(keyedBy: CodingKeysSurveyDetailResponseEntity.self)
 
+        if let data = try? values?.nestedContainer(keyedBy: CodingKeysSurveyDetailResponseEntity.self, forKey: .data) {
+            if let surveyId = try? data.decodeIfPresent(String.self, forKey: .surveyId) {
+                self.surveyId = surveyId
+            }
+        }
+
         if let array = try? values?.decodeIfPresent([SurveyDetailEntity].self, forKey: .included) {
             questions = array
         }
@@ -28,34 +34,24 @@ class SurveyDetailResponseEntity: BaseCodableResponseEntity {
 
     private enum CodingKeysSurveyDetailResponseEntity: String, CodingKey {
         case data
+        case surveyId = "id"
         case included
         case attributes
     }
 }
 
 class SurveyDetailEntity: BaseCodable {
-    enum QuestionType: String {
-        case answer
-        case question
-    }
-
-    enum DisplayType: String {
-        case star
-        case thumb
-        case heart
-        case face
-    }
-
     var text: String = ""
     var _type: String = QuestionType.answer.rawValue
-    var _displayType: String = DisplayType.star.rawValue
+    var _displayType: String = DisplayType.star.displayValue
 
     var type: QuestionType {
         return QuestionType(rawValue: _type) ?? .answer
     }
 
     var displayType: DisplayType {
-        return DisplayType(rawValue: _displayType) ?? .star
+        return DisplayType.mapValue(rawValue: _displayType)
+//        return DisplayType(rawValue: _displayType) ?? .star
     }
 
     required init() {
@@ -89,4 +85,58 @@ class SurveyDetailEntity: BaseCodable {
         case displayType = "display_type"
     }
 
+}
+
+extension SurveyDetailEntity {
+    enum QuestionType: String {
+        case answer
+        case question
+    }
+
+    enum DisplayType: Equatable {
+        case star
+        case thumb
+        case heart
+        case face(order: Int)
+
+        var displayValue: String {
+            switch self {
+            case .star: return "⭐️️"
+            case .thumb: return "👍🏻"
+            case .heart: return "❤️"
+            case .face(let order): do {
+                switch order {
+                case 0: return "😡"
+                case 1: return "😕"
+                case 2: return "😐"
+                case 3: return "🙂"
+                case 4: return "😄"
+                default: return ""
+                }
+            }}
+        }
+
+        var jsonValue: String {
+            switch self {
+            case .star: return "star"
+            case .thumb: return "thumb"
+            case .heart: return "heart"
+            case .face: return "face"
+            }
+        }
+
+        var nonFaceStyle: Bool {
+            return [.star, .thumb, .heart].contains(where: { $0 == self})
+        }
+
+        static func mapValue(rawValue: String) -> Self {
+            switch rawValue {
+            case "star": return .star
+            case "thumb": return .thumb
+            case "heart": return .heart
+            case "face": return .face(order: 0)
+            default: return .star
+            }
+        }
+    }
 }

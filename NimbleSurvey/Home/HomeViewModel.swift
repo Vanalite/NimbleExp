@@ -29,6 +29,10 @@ class HomeViewModel {
     func fetchSurvey() -> Driver<SurveyResponseEntity> {
         return self.netWorkService.fetchSurvey(pageNumber: 1)
             .asObservable()
+            .do(onNext: { [weak self] surveys in
+                guard let self = self else { return }
+                self.surveyList = surveys.data ?? []
+            })
             .asDriverOnErrorJustComplete()
     }
 

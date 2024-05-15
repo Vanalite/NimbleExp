@@ -447,7 +447,7 @@
                                     <constraint firstAttribute="trailing" secondItem="iTe-jn-0nJ" secondAttribute="trailing" constant="20" id="TNV-ej-vEw"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-4I-kMx">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-4I-kMx" userLabel="Question Stack View">
                                 <rect key="frame" x="20" y="123" width="353" height="158"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-We-oXd" userLabel="CountWraperView">
@@ -465,6 +465,10 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ml-70-PxL" userLabel="Answer Wrapper View">
+                                <rect key="frame" x="20" y="301" width="353" height="421"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpt-fU-6A4" userLabel="NextButton">
                                 <rect key="frame" x="317" y="742" width="56" height="56"/>
                                 <constraints>
@@ -478,22 +482,26 @@
                         <viewLayoutGuide key="safeArea" id="Ggs-LA-2B7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7ml-70-PxL" firstAttribute="leading" secondItem="Ggs-LA-2B7" secondAttribute="leading" constant="20" id="3xL-ve-tB1"/>
                             <constraint firstItem="Ggs-LA-2B7" firstAttribute="trailing" secondItem="Hpt-fU-6A4" secondAttribute="trailing" constant="20" id="6jH-Vn-hhP"/>
                             <constraint firstItem="c9I-4I-kMx" firstAttribute="top" secondItem="ISK-n4-YkH" secondAttribute="bottom" id="BYS-2j-P8a"/>
                             <constraint firstItem="6gE-PC-jwz" firstAttribute="top" secondItem="ean-T0-iuk" secondAttribute="top" id="IS0-iE-kZK"/>
                             <constraint firstItem="ISK-n4-YkH" firstAttribute="top" secondItem="Ggs-LA-2B7" secondAttribute="top" id="LoF-oI-i8x"/>
                             <constraint firstItem="6gE-PC-jwz" firstAttribute="leading" secondItem="ean-T0-iuk" secondAttribute="leading" id="Myn-EY-PUL"/>
                             <constraint firstItem="ISK-n4-YkH" firstAttribute="leading" secondItem="Ggs-LA-2B7" secondAttribute="leading" id="Vf5-Zq-KDQ"/>
+                            <constraint firstItem="Ggs-LA-2B7" firstAttribute="trailing" secondItem="7ml-70-PxL" secondAttribute="trailing" constant="20" id="XEW-ug-nLX"/>
                             <constraint firstItem="Ggs-LA-2B7" firstAttribute="trailing" secondItem="c9I-4I-kMx" secondAttribute="trailing" constant="20" id="YID-Uq-AV7"/>
                             <constraint firstAttribute="trailing" secondItem="6gE-PC-jwz" secondAttribute="trailing" id="YbW-EC-Rtq"/>
                             <constraint firstItem="Ggs-LA-2B7" firstAttribute="bottom" secondItem="Hpt-fU-6A4" secondAttribute="bottom" constant="20" id="Yec-9a-EjT"/>
                             <constraint firstItem="Ggs-LA-2B7" firstAttribute="trailing" secondItem="ISK-n4-YkH" secondAttribute="trailing" id="egW-g8-gp3"/>
+                            <constraint firstItem="7ml-70-PxL" firstAttribute="top" secondItem="c9I-4I-kMx" secondAttribute="bottom" constant="20" id="i5K-FO-OFg"/>
                             <constraint firstItem="c9I-4I-kMx" firstAttribute="leading" secondItem="Ggs-LA-2B7" secondAttribute="leading" constant="20" id="mr5-lM-B9E"/>
-                            <constraint firstItem="Ggs-LA-2B7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="c9I-4I-kMx" secondAttribute="bottom" constant="20" id="nBt-rb-aSW"/>
+                            <constraint firstItem="Hpt-fU-6A4" firstAttribute="top" secondItem="7ml-70-PxL" secondAttribute="bottom" constant="20" id="q4L-UE-0CI"/>
                             <constraint firstAttribute="bottom" secondItem="6gE-PC-jwz" secondAttribute="bottom" id="vEq-To-Inz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerWrapperView" destination="7ml-70-PxL" id="deU-hB-dNx"/>
                         <outlet property="bgImageView" destination="6gE-PC-jwz" id="9HG-ec-fEV"/>
                         <outlet property="closeButton" destination="iTe-jn-0nJ" id="zv1-VV-OZA"/>
                         <outlet property="nextButton" destination="Hpt-fU-6A4" id="4PI-RI-5ut"/>

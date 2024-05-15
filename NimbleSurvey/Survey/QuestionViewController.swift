@@ -22,6 +22,7 @@ class QuestionViewController: UIViewController {
     let disposeBag = DisposeBag()
     var viewModel: QuestionViewModel!
     let ratingView = RatingView.instantiate(message: "")
+    lazy var freeTextField = UITextField()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +32,19 @@ class QuestionViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        ratingView.layoutSubviews()
     }
 
     private func configureUI() {
-        answerWrapperView.addSubview(ratingView)
-        ratingView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
-        }
-        ratingView.configure(ratingStyle: .star)
-        questionsCountLabel.text = viewModel.questionCountText()
         let currentQuestion = viewModel.getCurrentQuestion()
+        switch currentQuestion.answerType {
+        case .rating:
+            constructRatingView(displayType: currentQuestion.displayType)
+        case .freeText:
+            constructFreeTextField(question: currentQuestion)
+        default: // Missing other question types
+            return
+        }
+        questionsCountLabel.text = viewModel.questionCountText()
         questionLabel.text = currentQuestion.text
     }
 
@@ -84,6 +85,38 @@ class QuestionViewController: UIViewController {
         nextViewModel.currentQuestionIndex = viewModel.currentQuestionIndex + 1
         questionViewController.viewModel = nextViewModel
         navigationController?.pushViewController(questionViewController, animated: true)
+    }
 
+    private func constructRatingView(displayType: SurveyDetailEntity.DisplayType) {
+        ratingView.configure(ratingStyle: displayType)
+        answerWrapperView.addSubview(ratingView)
+        ratingView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(60)
+            make.trailing.equalToSuperview().offset(-60)
+            make.height.greaterThanOrEqualTo(56)
+        }
+    }
+
+    private func constructFreeTextField(question: SurveyDetailEntity) {
+        let wrapperView = UIView()
+        answerWrapperView.addSubview(wrapperView)
+        wrapperView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+        wrapperView.layer.cornerRadius = 12
+        wrapperView.layer.masksToBounds = true
+        wrapperView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        wrapperView.addSubview(freeTextField)
+        freeTextField.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(168)
+        }
+        freeTextField.contentVerticalAlignment = .top
+        freeTextField.contentHorizontalAlignment = .leading
+        freeTextField.backgroundColor = .clear
+        freeTextField.placeholder = question.answerPlaceholder
+        freeTextField.placeHolderColor = UIColor(white: 1, alpha: 0.5)
+        freeTextField.textColor = .white
     }
 }

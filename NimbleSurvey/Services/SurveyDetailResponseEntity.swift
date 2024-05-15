@@ -42,8 +42,10 @@ class SurveyDetailResponseEntity: BaseCodableResponseEntity {
 
 class SurveyDetailEntity: BaseCodable {
     var text: String = ""
+    var answerPlaceholder: String = "Your thought"
     var _type: String = QuestionType.answer.rawValue
     var _displayType: String = DisplayType.star.displayValue
+    var _answerType: String = AnswerType.rating.rawValue
 
     var type: QuestionType {
         return QuestionType(rawValue: _type) ?? .answer
@@ -51,6 +53,10 @@ class SurveyDetailEntity: BaseCodable {
 
     var displayType: DisplayType {
         return DisplayType.mapValue(rawValue: _displayType)
+    }
+
+    var answerType: AnswerType {
+        return AnswerType(rawValue: _answerType) ?? .rating
     }
 
     required init() {
@@ -71,6 +77,14 @@ class SurveyDetailEntity: BaseCodable {
             }
 
             if let displayType = try? data.decodeIfPresent(String.self, forKey: .displayType) {
+                if displayType == "default" {
+                    self._answerType = AnswerType.freeText.rawValue
+                    if let answerPlaceholder = try? data.decodeIfPresent(String.self, forKey: .inputMaskPlaceholder) {
+                        self.answerPlaceholder = answerPlaceholder
+                    }
+                } else if AnswerType.isRatingType(displayType: displayType) {
+                    self._answerType = AnswerType.rating.rawValue
+                }
                 self._displayType = displayType
             }
         }
@@ -82,6 +96,7 @@ class SurveyDetailEntity: BaseCodable {
         case attributes
         case text
         case displayType = "display_type"
+        case inputMaskPlaceholder = "input_mask_placeholder"
     }
 
 }
@@ -136,6 +151,19 @@ extension SurveyDetailEntity {
             case "face": return .face(order: 0)
             default: return .star
             }
+        }
+    }
+
+    enum AnswerType: String {
+        case rating
+        case freeText
+        case multipleChoice
+        case yesNo
+        case nps
+        case field
+
+        static func isRatingType(displayType: String) -> Bool {
+            return ["star", "thumb", "heart", "face"].contains(displayType)
         }
     }
 }

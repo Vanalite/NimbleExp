@@ -443,14 +443,14 @@
                                     <constraint firstAttribute="trailing" secondItem="iTe-jn-0nJ" secondAttribute="trailing" constant="20" id="TNV-ej-vEw"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-4I-kMx" userLabel="Question Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-4I-kMx" userLabel="Question Stack View">
                                 <rect key="frame" x="20" y="123" width="353" height="158"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-We-oXd" userLabel="CountWraperView">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-We-oXd" userLabel="CountWraperView">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="20"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-Dl-pEC">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="1/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-Dl-pEC">
+                                                <rect key="frame" x="0.0" y="1" width="22" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -459,11 +459,12 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="4TH-gW-Fzj"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CRX-Dl-pEC" secondAttribute="trailing" constant="20" symbolic="YES" id="aLW-QI-bL6"/>
                                             <constraint firstItem="CRX-Dl-pEC" firstAttribute="leading" secondItem="YfO-We-oXd" secondAttribute="leading" id="cra-ZL-zFL"/>
                                             <constraint firstItem="CRX-Dl-pEC" firstAttribute="centerY" secondItem="YfO-We-oXd" secondAttribute="centerY" id="zKa-ns-z0v"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How fulfilled did you feel during this WFH period?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxN-o5-exv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="How fulfilled did you feel during this WFH period?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxN-o5-exv">
                                         <rect key="frame" x="0.0" y="36" width="353" height="122"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -471,9 +472,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="7ml-70-PxL" userLabel="Answer Wrapper View">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="7ml-70-PxL" userLabel="Answer Wrapper View">
                                 <rect key="frame" x="20" y="301" width="353" height="421"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="500" constant="900" id="lBk-1B-iU9"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpt-fU-6A4" userLabel="NextButton">
                                 <rect key="frame" x="317" y="742" width="56" height="56"/>

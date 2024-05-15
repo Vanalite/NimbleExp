@@ -39,6 +39,7 @@ class RatingView: UIView {
             } else {
                 button.titleLabel?.text = SurveyDetailEntity.DisplayType.face(order: i).displayValue
             }
+            button.titleLabel?.font = .boldSystemFont(ofSize: 28)
             ratingStackView.addArrangedSubview(button)
             button.snp.makeConstraints { make in
                 make.height.width.equalTo(36)

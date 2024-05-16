@@ -60,6 +60,8 @@
 		65D81A942BF6283C007ECCD8 /* UserEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A932BF6283C007ECCD8 /* UserEntityTests.swift */; };
 		65D81A962BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A952BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift */; };
 		65D81A9A2BF62ACC007ECCD8 /* survey_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 65D81A992BF62ACC007ECCD8 /* survey_detail.json */; };
+		65D81A9C2BF64AC6007ECCD8 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A9B2BF64AC6007ECCD8 /* HomeViewModelTests.swift */; };
+		65D81A9E2BF6623D007ECCD8 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A9D2BF6623D007ECCD8 /* NetworkServiceMock.swift */; };
 		65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6412BEDEEE400877180 /* AppDelegate.swift */; };
 		65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6432BEDEEE400877180 /* SceneDelegate.swift */; };
 		65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6452BEDEEE400877180 /* LoginViewController.swift */; };
@@ -140,6 +142,8 @@
 		65D81A932BF6283C007ECCD8 /* UserEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityTests.swift; sourceTree = "<group>"; };
 		65D81A952BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailResponseEntityTests.swift; sourceTree = "<group>"; };
 		65D81A992BF62ACC007ECCD8 /* survey_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = survey_detail.json; sourceTree = "<group>"; };
+		65D81A9B2BF64AC6007ECCD8 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		65D81A9D2BF6623D007ECCD8 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		65FDF63E2BEDEEE400877180 /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDF6412BEDEEE400877180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FDF6432BEDEEE400877180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,15 +274,16 @@
 			path = Survey;
 			sourceTree = "<group>";
 		};
-		65D81A842BF616FE007ECCD8 /* JSONData */ = {
+		65D81A842BF616FE007ECCD8 /* MockData */ = {
 			isa = PBXGroup;
 			children = (
 				65D81A852BF6170D007ECCD8 /* login.json */,
 				65D81A912BF62823007ECCD8 /* user.json */,
 				65D81A8E2BF6254C007ECCD8 /* fetch_survey.json */,
 				65D81A992BF62ACC007ECCD8 /* survey_detail.json */,
+				65D81A9D2BF6623D007ECCD8 /* NetworkServiceMock.swift */,
 			);
-			path = JSONData;
+			path = MockData;
 			sourceTree = "<group>";
 		};
 		65D81A872BF61896007ECCD8 /* Services */ = {
@@ -299,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				65D81A7A2BF5D8D1007ECCD8 /* LoginViewModelTests.swift */,
+				65D81A9B2BF64AC6007ECCD8 /* HomeViewModelTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -352,7 +358,7 @@
 				65D81A822BF6162E007ECCD8 /* MockJSONAdapter.swift */,
 				65D81A902BF627B8007ECCD8 /* Domain */,
 				65D81A872BF61896007ECCD8 /* Services */,
-				65D81A842BF616FE007ECCD8 /* JSONData */,
+				65D81A842BF616FE007ECCD8 /* MockData */,
 			);
 			path = NimbleSurveyTests;
 			sourceTree = "<group>";
@@ -657,10 +663,12 @@
 				65D81A7B2BF5D8D1007ECCD8 /* LoginViewModelTests.swift in Sources */,
 				65D81A7D2BF6135F007ECCD8 /* GeneratedMocks.swift in Sources */,
 				65D81A7F2BF613BB007ECCD8 /* LoginRequestEntityTests.swift in Sources */,
+				65D81A9C2BF64AC6007ECCD8 /* HomeViewModelTests.swift in Sources */,
 				65D81A832BF6162E007ECCD8 /* MockJSONAdapter.swift in Sources */,
 				65D81A962BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift in Sources */,
 				65D81A812BF615C9007ECCD8 /* LoginResponseEntityTests.swift in Sources */,
 				65D81A942BF6283C007ECCD8 /* UserEntityTests.swift in Sources */,
+				65D81A9E2BF6623D007ECCD8 /* NetworkServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

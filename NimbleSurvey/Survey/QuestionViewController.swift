@@ -30,10 +30,6 @@ class QuestionViewController: UIViewController {
         bindViewModel()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
     private func configureUI() {
         let currentQuestion = viewModel.getCurrentQuestion()
         switch currentQuestion.answerType {
@@ -53,7 +49,7 @@ class QuestionViewController: UIViewController {
             guard let self = self,
                   let navigationController = self.navigationController else { return }
             let homeViewController = navigationController.viewControllers.first {
-                $0.isKind(of: HomeViewController.self)
+                $0.isKind(of: PageViewController.self)
             }
             if let homeViewController = homeViewController {
                 navigationController.popToViewController(homeViewController, animated: true)

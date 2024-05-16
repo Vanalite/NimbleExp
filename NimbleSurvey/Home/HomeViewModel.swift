@@ -12,19 +12,18 @@ import RxSwift
 
 class HomeViewModel {
 
-    var user: LoginResponseEntity
+    var user: UserEntity?
     var surveyList: [SurveyDataEntity] = []
+    var currentSurveyIndex = 0
 
     private let netWorkService : NetworkService
     private let realm: Realm
     private let disposeBag = DisposeBag()
 
-    var numberOfSurveys = BehaviorRelay<Int>(value: 3)
-
-    init(user: LoginResponseEntity,
-         netWorkService: NetworkService = NetworkService(),
-         realm: Realm = RealmManager.shared.mainThreadRealm) {
-        self.user = user
+    init(
+        netWorkService: NetworkService = NetworkService(),
+        realm: Realm = RealmManager.shared.mainThreadRealm
+    ) {
         self.netWorkService = netWorkService
         self.realm = realm
     }
@@ -42,6 +41,9 @@ class HomeViewModel {
     func fetchUser() -> Driver<UserEntity> {
         return self.netWorkService.getUser()
             .asObservable()
+            .do(onNext: { [weak self] newUser in
+                self?.user = newUser
+            })
             .asDriverOnErrorJustComplete()
     }
 }

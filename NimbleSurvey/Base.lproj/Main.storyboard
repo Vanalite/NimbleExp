@@ -141,7 +141,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="csu-he-5YO" userLabel="BG Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="csu-he-5YO" userLabel="BG Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45T-ps-Otp" userLabel="HeaderWrapperView">
@@ -249,6 +249,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="actionButton"/>
+                                                <connections>
+                                                    <action selector="startButtonDidTap:" destination="Cn9-hZ-TXe" eventType="touchUpInside" id="mQT-7d-lDm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -314,7 +317,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="qVP-3x-bNE" userLabel="BG Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVP-3x-bNE" userLabel="BG Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzD-mP-IGV" userLabel="TopBarView">
@@ -418,7 +421,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="6gE-PC-jwz" userLabel="BG Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gE-PC-jwz" userLabel="BG Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISK-n4-YkH" userLabel="TopBarView">
@@ -490,7 +493,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ggs-LA-2B7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7ml-70-PxL" firstAttribute="leading" secondItem="Ggs-LA-2B7" secondAttribute="leading" constant="20" id="3xL-ve-tB1"/>
                             <constraint firstItem="Ggs-LA-2B7" firstAttribute="trailing" secondItem="Hpt-fU-6A4" secondAttribute="trailing" constant="20" id="6jH-Vn-hhP"/>
@@ -563,6 +566,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJA-Ko-Rrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4219" y="375"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="Xdp-WZ-Iw4">
+            <objects>
+                <pageViewController restorationIdentifier="PageViewController" storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ODH-7f-vT6" customClass="PageViewController" customModule="NimbleSurvey" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHi-HL-xSE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1799" y="1174"/>
         </scene>
     </scenes>
     <resources>

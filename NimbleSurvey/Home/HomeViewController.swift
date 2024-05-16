@@ -26,51 +26,44 @@ class HomeViewController: UIViewController {
     let menuView = MenuView.instantiate(message: "")
     let slideInViewWidth: CGFloat = 240
     let disposeBag = DisposeBag()
+    weak var pageViewController: UIPageViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        configureUI()
-        bindViewModel()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchData()
+        configureUI()
+        binding()
     }
 
     private func fetchData() {
-        viewModel.fetchSurvey().drive(onNext: { [weak self] surveys in
-            self?.reconfigureUI(surveys)
-        })
-        .disposed(by: disposeBag)
-        viewModel.fetchUser().drive(onNext: { [weak self] user in
-            self?.assignUsername(user: user)
-        })
-        .disposed(by: disposeBag)
+        if let user = viewModel.user {
+            assignUsername(user: user)
+        } else {
+            viewModel.fetchUser().drive(onNext: { [weak self] user in
+                self?.assignUsername(user: user)
+            })
+            .disposed(by: disposeBag)
+        }
     }
 
     private func configureUI() {
         setCurrentTime()
         containerView.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
-        let tapGesture = UITapGestureRecognizer(target: self,
-                                                action: #selector(slideMenuOut))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(slideMenuOut))
         containerView.addGestureRecognizer(tapGesture)
         menuView.delegate = self
     }
 
-    private func bindViewModel() {
+    private func binding() {
         avatarButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.slideMenuIn()
-            })
-            .disposed(by: disposeBag)
-
-        startSurveyButton.rx.tap
-            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigateToSurveyEntrance()
             })
             .disposed(by: disposeBag)
     }
@@ -110,7 +103,8 @@ class HomeViewController: UIViewController {
     private func navigateToSurveyEntrance() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let surveyEntranceViewController = storyBoard.instantiateViewController(withIdentifier: "SurveyEntranceViewController") as! SurveyEntranceViewController
-        if let startingSurvey = viewModel.surveyList.first {
+        if viewModel.currentSurveyIndex < viewModel.surveyList.count {
+            let startingSurvey = viewModel.surveyList[viewModel.currentSurveyIndex]
             let viewModel = SurveyEntranceViewModel(surveyData: startingSurvey)
             surveyEntranceViewController.viewModel = viewModel
         }
@@ -130,8 +124,12 @@ class HomeViewController: UIViewController {
         })
     }
 
-    private func reconfigureUI(_ surveys: SurveyResponseEntity) {
-        guard let survey = surveys.data?.first?.attributes else { return }
+    @IBAction func startButtonDidTap(_ sender: Any) {
+        navigateToSurveyEntrance()
+    }
+
+    func reconfigureUI(_ surveyEntity: SurveyDataEntity) {
+        guard let survey = surveyEntity.attributes else { return }
         titleLabel.text = survey.title
         descriptionLabel.text = survey.descriptionString
         let url = URL(string: survey.coverImageUrl)
@@ -143,7 +141,7 @@ class HomeViewController: UIViewController {
                 .cacheOriginalImage
             ]
         )
-        pageControl.numberOfPages = surveys.data?.count ?? 0
+        pageControl.currentPage = viewModel.currentSurveyIndex
     }
 
     private func assignUsername(user: UserEntity) {

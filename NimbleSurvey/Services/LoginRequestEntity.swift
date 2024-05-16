@@ -11,8 +11,8 @@ class LoginRequestEntity: BaseCodable {
     @objc dynamic var email = ""
     @objc dynamic var password = ""
     @objc dynamic var grantType = "password"
-    @objc dynamic var clientId = "ly1nj6n11vionaie65emwzk575hnnmrk"
-    @objc dynamic var clientSecret = "hOzsTeFlT6ko0dme22uGbQal04SBPYc1"
+    @objc dynamic var clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
+    @objc dynamic var clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
 
     required init() {
         super.init()

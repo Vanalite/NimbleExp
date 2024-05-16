@@ -23,8 +23,8 @@ class ThankViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             guard let navigationController = self.navigationController else { return }
             let homeViewController = navigationController.viewControllers.first {
-                $0.isKind(of: HomeViewController.self)
-            } 
+                $0.isKind(of: PageViewController.self)
+            }
             if let homeViewController = homeViewController {
                 navigationController.popToViewController(homeViewController, animated: true)
             }

@@ -104,10 +104,12 @@ class LoginViewController: UIViewController {
 
     private func navigateToHome(user: LoginResponseEntity) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        let homeViewModel = HomeViewModel(user: user)
-        homeViewController.viewModel = homeViewModel
-        navigationController?.pushViewController(homeViewController, animated: true)
+        let homeViewModel = HomeViewModel()
+        let pageViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        pageViewController.viewModel = homeViewModel
+        //        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        //        homeViewController.viewModel = homeViewModel
+        navigationController?.pushViewController(pageViewController, animated: true)
     }
 }
 

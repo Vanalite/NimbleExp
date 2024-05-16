@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 protocol MenuViewDelegate: AnyObject {
     func logoutDidTap(_ sender: Any)
@@ -15,6 +16,7 @@ protocol MenuViewDelegate: AnyObject {
 class MenuView: UIView {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var avatarButton: UIButton!
     weak var delegate: MenuViewDelegate?
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,6 +35,11 @@ class MenuView: UIView {
 
     func assignUsername(_ userName: String) {
         usernameLabel.text = userName
+    }
+
+    func assignUserAvatar(_ avatarURL: String) {
+        guard let url = URL(string: avatarURL) else { return }
+        avatarButton.kf.setImage(with: url, for: .normal)
     }
 
     @IBAction func logoutDidTap(_ sender: Any) {

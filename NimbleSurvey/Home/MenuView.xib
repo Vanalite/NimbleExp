@@ -99,6 +99,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="avatarButton" destination="0IR-Wd-ECf" id="1vb-Rv-UIY"/>
                 <outlet property="logoutButton" destination="cCJ-no-zjw" id="Uos-Hw-iCr"/>
                 <outlet property="usernameLabel" destination="Oui-DM-Ttl" id="uus-iH-jgY"/>
             </connections>

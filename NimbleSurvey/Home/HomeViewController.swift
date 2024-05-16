@@ -145,7 +145,11 @@ class HomeViewController: UIViewController {
     }
 
     private func assignUsername(user: UserEntity) {
+        if let url = URL(string: user.avatarURL) {
+            avatarButton.kf.setImage(with: url, for: .normal)
+        }
         menuView.assignUsername(user.name)
+        menuView.assignUserAvatar(user.avatarURL)
     }
 }
 

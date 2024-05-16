@@ -30,7 +30,6 @@ final class LoginViewModel {
     }
 
     func validation() -> Bool {
-
         if email.value.isEmpty {
             errorMsg.accept("Please enter email")
             return false

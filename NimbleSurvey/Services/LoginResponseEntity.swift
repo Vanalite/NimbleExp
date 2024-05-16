@@ -42,6 +42,11 @@ class LoginToken: BaseCodableResponseEntity {
         if let identifier = try? values?.decodeIfPresent(String.self, forKey: .identifier) {
             self.identifier = identifier
         }
+
+        if let type = try? values?.decodeIfPresent(String.self, forKey: .type) {
+            self.type = type
+        }
+
         if let attributes = try? values?.decodeIfPresent(LoginTokenAttribute.self, forKey: .attributes) {
             self.attributes = attributes
         }
@@ -53,6 +58,7 @@ class LoginToken: BaseCodableResponseEntity {
     
     private enum CodingKeysLoginToken: String, CodingKey {
         case identifier = "id"
+        case type
         case attributes
     }
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 PROJECT_DIR="."
-PROJECT_NAME="WeatherForecast"
+PROJECT_NAME="NimbleSurvey"
 PODS_ROOT="./Pods"
 
 

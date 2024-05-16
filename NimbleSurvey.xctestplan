@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "2620C1FB-924F-4243-BB50-AD0B77062DE8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:NimbleSurvey.xcodeproj",
+      "identifier" : "65FDF63D2BEDEEE400877180",
+      "name" : "NimbleSurvey"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NimbleSurvey.xcodeproj",
+        "identifier" : "65FDF6532BEDEEE600877180",
+        "name" : "NimbleSurveyTests"
+      }
+    }
+  ],
+  "version" : 1
+}

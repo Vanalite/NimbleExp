@@ -56,6 +56,10 @@
 		65D81A8B2BF62471007ECCD8 /* SurveyRequestEntityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A8A2BF62471007ECCD8 /* SurveyRequestEntityTest.swift */; };
 		65D81A8D2BF62482007ECCD8 /* SurveyResponseEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A8C2BF62482007ECCD8 /* SurveyResponseEntityTests.swift */; };
 		65D81A8F2BF6254C007ECCD8 /* fetch_survey.json in Resources */ = {isa = PBXBuildFile; fileRef = 65D81A8E2BF6254C007ECCD8 /* fetch_survey.json */; };
+		65D81A922BF62823007ECCD8 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 65D81A912BF62823007ECCD8 /* user.json */; };
+		65D81A942BF6283C007ECCD8 /* UserEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A932BF6283C007ECCD8 /* UserEntityTests.swift */; };
+		65D81A962BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81A952BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift */; };
+		65D81A9A2BF62ACC007ECCD8 /* survey_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 65D81A992BF62ACC007ECCD8 /* survey_detail.json */; };
 		65FDF6422BEDEEE400877180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6412BEDEEE400877180 /* AppDelegate.swift */; };
 		65FDF6442BEDEEE400877180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6432BEDEEE400877180 /* SceneDelegate.swift */; };
 		65FDF6462BEDEEE400877180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDF6452BEDEEE400877180 /* LoginViewController.swift */; };
@@ -132,6 +136,10 @@
 		65D81A8A2BF62471007ECCD8 /* SurveyRequestEntityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyRequestEntityTest.swift; sourceTree = "<group>"; };
 		65D81A8C2BF62482007ECCD8 /* SurveyResponseEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponseEntityTests.swift; sourceTree = "<group>"; };
 		65D81A8E2BF6254C007ECCD8 /* fetch_survey.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fetch_survey.json; sourceTree = "<group>"; };
+		65D81A912BF62823007ECCD8 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		65D81A932BF6283C007ECCD8 /* UserEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityTests.swift; sourceTree = "<group>"; };
+		65D81A952BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailResponseEntityTests.swift; sourceTree = "<group>"; };
+		65D81A992BF62ACC007ECCD8 /* survey_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = survey_detail.json; sourceTree = "<group>"; };
 		65FDF63E2BEDEEE400877180 /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FDF6412BEDEEE400877180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FDF6432BEDEEE400877180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,7 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				65D81A852BF6170D007ECCD8 /* login.json */,
+				65D81A912BF62823007ECCD8 /* user.json */,
 				65D81A8E2BF6254C007ECCD8 /* fetch_survey.json */,
+				65D81A992BF62ACC007ECCD8 /* survey_detail.json */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -275,9 +285,11 @@
 			isa = PBXGroup;
 			children = (
 				65D81A7E2BF613BB007ECCD8 /* LoginRequestEntityTests.swift */,
+				65D81A932BF6283C007ECCD8 /* UserEntityTests.swift */,
 				65D81A802BF615C9007ECCD8 /* LoginResponseEntityTests.swift */,
 				65D81A8A2BF62471007ECCD8 /* SurveyRequestEntityTest.swift */,
 				65D81A8C2BF62482007ECCD8 /* SurveyResponseEntityTests.swift */,
+				65D81A952BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift */,
 			);
 			name = Services;
 			path = "Sẻvices";
@@ -492,7 +504,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D81A922BF62823007ECCD8 /* user.json in Resources */,
 				65D81A8F2BF6254C007ECCD8 /* fetch_survey.json in Resources */,
+				65D81A9A2BF62ACC007ECCD8 /* survey_detail.json in Resources */,
 				65D81A862BF6170D007ECCD8 /* login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,7 +658,9 @@
 				65D81A7D2BF6135F007ECCD8 /* GeneratedMocks.swift in Sources */,
 				65D81A7F2BF613BB007ECCD8 /* LoginRequestEntityTests.swift in Sources */,
 				65D81A832BF6162E007ECCD8 /* MockJSONAdapter.swift in Sources */,
+				65D81A962BF62934007ECCD8 /* SurveyDetailResponseEntityTests.swift in Sources */,
 				65D81A812BF615C9007ECCD8 /* LoginResponseEntityTests.swift in Sources */,
+				65D81A942BF6283C007ECCD8 /* UserEntityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
